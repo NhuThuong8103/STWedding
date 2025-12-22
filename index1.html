@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ST Wedding</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              heading: [
+                "Playfair Display",
+                "serif"
+              ],
+              body: [
+                "Inter",
+                "system-ui",
+                "-apple-system",
+                "BlinkMacSystemFont",
+                "Segoe UI",
+                "sans-serif"
+              ]
+            },
+            colors: {
+              brand: {
+                50: "#fdf6f3",
+                100: "#f8e7e0",
+                200: "#f0cbc0",
+                300: "#e5a68f",
+                400: "#d98968",
+                500: "#c7744f",
+                600: "#a65c3e",
+                700: "#7d432f",
+                800: "#5a3023",
+                900: "#3e2018"
+              }
+            },
+            backgroundImage: {
+              "hero-pattern":
+                "linear-gradient(rgba(17,15,14,0.55), rgba(17,15,14,0.55)), url('https://images.unsplash.com/photo-1520854221050-0f4caff449fb?auto=format&fit=crop&w=1600&q=80')"
+            },
+            boxShadow: {
+              brand: "0 25px 50px -12px rgba(199, 116, 79, 0.35)"
+            },
+            keyframes: {
+              fadeInUp: {
+                "0%": {
+                  opacity: "0",
+                  transform: "translateY(36px) scale(0.98)",
+                  filter: "blur(12px)"
+                },
+                "100%": {
+                  opacity: "1",
+                  transform: "translateY(0) scale(1)",
+                  filter: "blur(0)"
+                }
+              },
+              fadeOutDown: {
+                "0%": {
+                  opacity: "1",
+                  transform: "translateY(0) scale(1)",
+                  filter: "blur(0)"
+                },
+                "100%": {
+                  opacity: "0",
+                  transform: "translateY(24px) scale(0.98)",
+                  filter: "blur(10px)"
+                }
+              },
+              fadeInDown: {
+                "0%": {
+                  opacity: "0",
+                  transform: "translateY(-36px) scale(0.98)",
+                  filter: "blur(12px)"
+                },
+                "100%": {
+                  opacity: "1",
+                  transform: "translateY(0) scale(1)",
+                  filter: "blur(0)"
+                }
+              },
+              fadeOutUp: {
+                "0%": {
+                  opacity: "1",
+                  transform: "translateY(0) scale(1)",
+                  filter: "blur(0)"
+                },
+                "100%": {
+                  opacity: "0",
+                  transform: "translateY(-24px) scale(0.98)",
+                  filter: "blur(10px)"
+                }
+              },
+              fadeIn: {
+                "0%": { opacity: "0", filter: "blur(12px)" },
+                "100%": { opacity: "1", filter: "blur(0)" }
+              },
+              fadeOut: {
+                "0%": { opacity: "1", filter: "blur(0)" },
+                "100%": { opacity: "0", filter: "blur(10px)" }
+              },
+              fadeInLeft: {
+                "0%": {
+                  opacity: "0",
+                  transform: "translateX(-36px) scale(0.98)",
+                  filter: "blur(12px)"
+                },
+                "100%": {
+                  opacity: "1",
+                  transform: "translateX(0) scale(1)",
+                  filter: "blur(0)"
+                }
+              },
+              fadeOutLeft: {
+                "0%": {
+                  opacity: "1",
+                  transform: "translateX(0) scale(1)",
+                  filter: "blur(0)"
+                },
+                "100%": {
+                  opacity: "0",
+                  transform: "translateX(-24px) scale(0.98)",
+                  filter: "blur(10px)"
+                }
+              },
+              fadeInRight: {
+                "0%": {
+                  opacity: "0",
+                  transform: "translateX(36px) scale(0.98)",
+                  filter: "blur(12px)"
+                },
+                "100%": {
+                  opacity: "1",
+                  transform: "translateX(0) scale(1)",
+                  filter: "blur(0)"
+                }
+              },
+              fadeOutRight: {
+                "0%": {
+                  opacity: "1",
+                  transform: "translateX(0) scale(1)",
+                  filter: "blur(0)"
+                },
+                "100%": {
+                  opacity: "0",
+                  transform: "translateX(24px) scale(0.98)",
+                  filter: "blur(10px)"
+                }
+              }
+            },
+            animation: {
+              "fade-in-up": "fadeInUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards",
+              "fade-out-down": "fadeOutDown 0.6s cubic-bezier(0.7, 0, 0.84, 0) forwards",
+              "fade-in-down": "fadeInDown 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards",
+              "fade-out-up": "fadeOutUp 0.6s cubic-bezier(0.7, 0, 0.84, 0) forwards",
+              "fade-in": "fadeIn 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards",
+              "fade-out": "fadeOut 0.6s cubic-bezier(0.7, 0, 0.84, 0) forwards",
+              "fade-in-left": "fadeInLeft 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards",
+              "fade-out-left": "fadeOutLeft 0.6s cubic-bezier(0.7, 0, 0.84, 0) forwards",
+              "fade-in-right": "fadeInRight 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards",
+              "fade-out-right": "fadeOutRight 0.6s cubic-bezier(0.7, 0, 0.84, 0) forwards"
+            }
+          }
+        }
+      };
+    </script>
+  </head>
+  <body class="font-body bg-white text-slate-800 antialiased">
+    <header class="relative isolate flex min-h-[90vh] flex-col bg-hero-pattern bg-cover bg-center text-white" id="home">
+      <span class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/60"></span>
+      <nav class="relative z-20 mx-auto mt-8 w-full max-w-6xl rounded-3xl border border-white/20 bg-white/10 px-6 py-5 backdrop-blur">
+        <div class="flex flex-col items-center gap-6 text-center sm:flex-row sm:justify-between">
+          <div class="text-lg font-semibold uppercase tracking-[0.4em]">ST Wedding</div>
+          <div class="flex flex-wrap justify-center gap-2">
+            <button
+              type="button"
+              class="rounded-full px-4 py-2 text-sm font-medium uppercase tracking-[0.35em] text-white/80 transition-colors hover:bg-white/20"
+              data-scroll-target="home"
+            >
+              Trang chủ
+            </button>
+            <button
+              type="button"
+              class="rounded-full px-4 py-2 text-sm font-medium uppercase tracking-[0.35em] text-white/80 transition-colors hover:bg-white/20"
+              data-scroll-target="story"
+            >
+              Chuyện tình
+            </button>
+            <button
+              type="button"
+              class="rounded-full px-4 py-2 text-sm font-medium uppercase tracking-[0.35em] text-white/80 transition-colors hover:bg-white/20"
+              data-scroll-target="schedule"
+            >
+              Lịch trình
+            </button>
+            <button
+              type="button"
+              class="rounded-full px-4 py-2 text-sm font-medium uppercase tracking-[0.35em] text-white/80 transition-colors hover:bg-white/20"
+              data-scroll-target="gallery"
+            >
+              Khoảnh khắc
+            </button>
+            <button
+              type="button"
+              class="rounded-full bg-brand-400 px-6 py-2 text-sm font-semibold uppercase tracking-[0.4em] text-white shadow shadow-brand transition hover:bg-brand-500"
+              data-scroll-target="rsvp"
+            >
+              RSVP
+            </button>
+          </div>
+        </div>
+      </nav>
+      <div class="relative z-20 mx-auto flex w-full max-w-6xl flex-1 items-end px-6 pb-24">
+        <div
+          class="max-w-xl space-y-6 rounded-3xl bg-black/30 p-8 backdrop-blur-lg md:p-10"
+          data-animate="fade-right"
+          data-animate-once="true"
+          data-animate-delay="0.1"
+        >
+          <p class="text-xs uppercase tracking-[0.6em] text-white/70">Chúng tôi sắp cưới!</p>
+          <h1 class="font-heading text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">
+            Sơn &amp; Thuong
+          </h1>
+          <p class="text-sm uppercase tracking-[0.4em] text-white/70">27 Tháng 12, 2025 &middot; Hà Nội</p>
+          <div class="flex flex-wrap gap-3">
+            <button
+              type="button"
+              class="rounded-full bg-brand-400 px-6 py-3 text-xs font-semibold uppercase tracking-[0.4em] text-white shadow-lg shadow-brand transition hover:bg-brand-500"
+              data-scroll-target="schedule"
+            >
+              Xem lịch trình
+            </button>
+            <button
+              type="button"
+              class="rounded-full border border-white/40 px-6 py-3 text-xs font-semibold uppercase tracking-[0.4em] text-white transition hover:bg-white/15"
+              data-scroll-target="rsvp"
+            >
+              Xác nhận tham dự
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="bg-white">
+      <section class="bg-stone-50 py-20" id="story">
+        <div class="mx-auto flex w-full max-w-6xl flex-col gap-12 px-6">
+          <div class="space-y-5 text-center sm:text-left" data-animate="fade-left" data-animate-delay="0.15">
+            <p class="text-xs uppercase tracking-[0.5em] text-brand-400">Câu chuyện của chúng tôi</p>
+            <h2 class="font-heading text-3xl font-semibold text-slate-900 md:text-4xl">
+              Từ những người bạn đến tri kỷ
+            </h2>
+            <p class="mx-auto max-w-3xl text-base text-slate-600 sm:mx-0">
+              Chúng tôi gặp nhau trong một buổi workshop mùa hè năm 2018. Từ những câu chuyện bất tận về âm nhạc
+              và du lịch, tình yêu lớn dần theo từng chuyến đi, từng bức ảnh, từng kỷ niệm. Sau 7 năm, chúng tôi
+              quyết định viết tiếp hành trình với một đám cưới ấm áp bên gia đình và những người thân yêu.
+            </p>
+          </div>
+          <div class="grid gap-6 md:grid-cols-3">
+            <article
+              class="opacity-0 rounded-3xl border border-white/60 bg-white/90 p-6 shadow-lg shadow-brand-200/40 backdrop-blur"
+              data-animate="fade-right"
+              data-animate-delay="0.2"
+            >
+              <h3 class="font-heading text-2xl text-brand-500">2018</h3>
+              <p class="mt-2 text-sm text-slate-600">Gặp nhau lần đầu tại một workshop thiết kế.</p>
+            </article>
+            <article
+              class="opacity-0 rounded-3xl border border-white/60 bg-white/90 p-6 shadow-lg shadow-brand-200/40 backdrop-blur"
+              data-animate="fade-left"
+              data-animate-delay="0.28"
+            >
+              <h3 class="font-heading text-2xl text-brand-500">2020</h3>
+              <p class="mt-2 text-sm text-slate-600">Chuyến du lịch đầu tiên đến Đà Lạt cùng nhau.</p>
+            </article>
+            <article
+              class="opacity-0 rounded-3xl border border-white/60 bg-white/90 p-6 shadow-lg shadow-brand-200/40 backdrop-blur"
+              data-animate="fade-right"
+              data-animate-delay="0.36"
+            >
+              <h3 class="font-heading text-2xl text-brand-500">2023</h3>
+              <p class="mt-2 text-sm text-slate-600">Sơn cầu hôn Thuong dưới hoàng hôn Hội An.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-20" id="schedule">
+        <div class="mx-auto flex w-full max-w-6xl flex-col gap-12 px-6">
+          <div class="space-y-5 text-center sm:text-left" data-animate="fade-left" data-animate-delay="0.15">
+            <p class="text-xs uppercase tracking-[0.5em] text-brand-400">Lịch trình</p>
+            <h2 class="font-heading text-3xl font-semibold text-slate-900 md:text-4xl">
+              Cùng nhau chinh phục ngày trọng đại
+            </h2>
+          </div>
+          <div class="grid gap-6 md:grid-cols-3">
+            <article
+              class="opacity-0 rounded-3xl border border-brand-100 bg-brand-50 p-6 shadow-lg shadow-brand-200/40"
+              data-animate="fade-right"
+              data-animate-delay="0.2"
+            >
+              <h3 class="font-heading text-xl text-brand-500">15:00</h3>
+              <p class="mt-2 text-base font-semibold text-slate-900">Đón khách &amp; chụp ảnh</p>
+              <p class="mt-1 text-sm text-slate-600">Khu vườn Ánh Sáng, Vinhomes Riverside.</p>
+            </article>
+            <article
+              class="opacity-0 rounded-3xl border border-brand-100 bg-brand-50 p-6 shadow-lg shadow-brand-200/40"
+              data-animate="fade-left"
+              data-animate-delay="0.28"
+            >
+              <h3 class="font-heading text-xl text-brand-500">16:00</h3>
+              <p class="mt-2 text-base font-semibold text-slate-900">Lễ cưới</p>
+              <p class="mt-1 text-sm text-slate-600">Trao nhau lời nguyện ước trọn đời.</p>
+            </article>
+            <article
+              class="opacity-0 rounded-3xl border border-brand-100 bg-brand-50 p-6 shadow-lg shadow-brand-200/40"
+              data-animate="fade-right"
+              data-animate-delay="0.36"
+            >
+              <h3 class="font-heading text-xl text-brand-500">18:00</h3>
+              <p class="mt-2 text-base font-semibold text-slate-900">Tiệc tối &amp; khiêu vũ</p>
+              <p class="mt-1 text-sm text-slate-600">Âm nhạc, tiệc tối và những ly champagne.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="bg-stone-50 py-20" id="gallery">
+        <div class="mx-auto flex w-full max-w-6xl flex-col gap-12 px-6">
+          <div class="space-y-5 text-center sm:text-left" data-animate="fade" data-animate-delay="0.15">
+            <p class="text-xs uppercase tracking-[0.5em] text-brand-400">Khoảnh khắc</p>
+            <h2 class="font-heading text-3xl font-semibold text-slate-900 md:text-4xl">Những giây phút yêu thương</h2>
+            <p class="mx-auto max-w-3xl text-base text-slate-600 sm:mx-0">
+              Bộ sưu tập ảnh cưới sẽ được cập nhật liên tục. Chúng tôi rất háo hức chia sẻ cùng bạn những khoảnh
+              khắc tuyệt đẹp nhất trong hành trình chuẩn bị cho ngày cưới.
+            </p>
+          </div>
+          <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <figure
+              class="group relative overflow-hidden rounded-3xl shadow-lg shadow-brand-200/30"
+              data-animate="fade-right"
+              data-animate-delay="0.18"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1520854221058-7b4152baf3c0?auto=format&fit=crop&w=1200&q=80"
+                alt="Khoảnh khắc đám cưới"
+                class="opacity-0 h-full w-full object-cover transition duration-700 group-hover:scale-105"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+            </figure>
+            <figure
+              class="group relative overflow-hidden rounded-3xl shadow-lg shadow-brand-200/30"
+              data-animate="fade-left"
+              data-animate-delay="0.24"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=1200&q=80"
+                alt="Cặp đôi bên nhau"
+                class="opacity-0 h-full w-full object-cover transition duration-700 group-hover:scale-105"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+            </figure>
+            <figure
+              class="group relative overflow-hidden rounded-3xl shadow-lg shadow-brand-200/30"
+              data-animate="fade-right"
+              data-animate-delay="0.3"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1520854221057-9aa1de0d0bc3?auto=format&fit=crop&w=1200&q=80"
+                alt="Nhẫn cưới"
+                class="opacity-0 h-full w-full object-cover transition duration-700 group-hover:scale-105"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+            </figure>
+            <figure
+              class="group relative overflow-hidden rounded-3xl shadow-lg shadow-brand-200/30"
+              data-animate="fade-left"
+              data-animate-delay="0.36"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1519744792095-2f2205e87b6f?auto=format&fit=crop&w=1200&q=80"
+                alt="Không gian tiệc cưới"
+                class="opacity-0 h-full w-full object-cover transition duration-700 group-hover:scale-105"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-20" id="rsvp">
+        <div class="mx-auto flex w-full max-w-6xl flex-col gap-12 px-6">
+          <div class="space-y-5 text-center sm:text-left" data-animate="fade" data-animate-delay="0.15">
+            <p class="text-xs uppercase tracking-[0.5em] text-brand-400">RSVP</p>
+            <h2 class="font-heading text-3xl font-semibold text-slate-900 md:text-4xl">Hãy cùng đến chung vui</h2>
+            <p class="mx-auto max-w-3xl text-base text-slate-600 sm:mx-0">
+              Vui lòng xác nhận tham dự trước ngày 10/12/2025 để chúng tôi chuẩn bị chu đáo nhất cho bạn và gia đình.
+            </p>
+          </div>
+          <form
+            class="opacity-0 mx-auto w-full max-w-xl space-y-6 rounded-3xl border border-brand-100 bg-white/90 p-8 shadow-xl shadow-brand-200/50 backdrop-blur"
+            data-rsvp-form
+            data-animate="fade-right"
+            data-animate-delay="0.22"
+          >
+            <label class="block space-y-2">
+              <span class="text-xs font-semibold uppercase tracking-[0.4em] text-slate-500">Tên khách</span>
+              <input
+                class="w-full rounded-full border border-slate-200 bg-white/80 px-5 py-3 text-sm text-slate-700 outline-none transition focus:border-brand-400 focus:ring-4 focus:ring-brand-200"
+                type="text"
+                name="guestName"
+                placeholder="Nguyễn Văn A"
+                required
+              />
+            </label>
+            <fieldset class="space-y-3">
+              <legend class="text-xs font-semibold uppercase tracking-[0.4em] text-slate-500">
+                Bạn có thể tham dự?
+              </legend>
+              <div class="flex flex-wrap gap-3">
+                <label
+                  class="flex cursor-pointer items-center gap-3 rounded-full border border-brand-100 bg-brand-50 px-4 py-2 text-sm text-slate-700 transition hover:border-brand-200"
+                >
+                  <input type="radio" name="attending" value="yes" checked class="accent-brand-400" />
+                  <span>Chắc chắn rồi!</span>
+                </label>
+                <label
+                  class="flex cursor-pointer items-center gap-3 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm text-slate-700 transition hover:border-brand-200"
+                >
+                  <input type="radio" name="attending" value="no" class="accent-brand-400" />
+                  <span>Rất tiếc, lần sau nhé</span>
+                </label>
+              </div>
+            </fieldset>
+            <button
+              class="w-full rounded-full bg-brand-400 px-6 py-3 text-xs font-semibold uppercase tracking-[0.4em] text-white shadow shadow-brand transition hover:bg-brand-500"
+              type="submit"
+            >
+              Gửi RSVP
+            </button>
+            <p class="min-h-[1.5rem] text-sm font-medium" data-rsvp-status></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-slate-900 py-12 text-slate-200">
+      <div class="mx-auto flex w-full max-w-6xl flex-col items-center gap-2 px-6 text-center">
+        <p class="text-sm">Hẹn gặp bạn trong ngày trọng đại của chúng tôi.</p>
+        <p class="text-xs uppercase tracking-[0.4em] text-slate-400">Tạo bởi Sơn &amp; Thuong với rất nhiều yêu thương ♥</p>
+      </div>
+    </footer>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>
