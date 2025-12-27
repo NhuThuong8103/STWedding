@@ -32,28 +32,39 @@
     </div>
 
     <nav class="font-wedding bg-neutral-primary absolute w-full z-20 top-0 start-0 bg-[#faebd75c]">
-      <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-          <h1 class="logo text-6xl">S&T</h1>
+      <div class="max-w-screen-xl flex flex-col items-center justify-center mx-auto p-4">
+        <!-- Mobile Logo -->
+        <h1 class="logo text-6xl text-pink-500 md:hidden">S&T</h1>
           <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-body rounded-base md:hidden hover:bg-neutral-secondary-soft hover:text-heading focus:outline-none focus:ring-2 focus:ring-neutral-tertiary" aria-controls="navbar-default" aria-expanded="false">
               <span class="sr-only">Open main menu</span>
               <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M5 7h14M5 12h14M5 17h14"/></svg>
           </button>
-          <div class="hidden w-full md:block md:w-auto" id="navbar-default">
-          <ul class="font-medium text-2xl flex flex-col p-4 md:p-0 mt-4 border border-default rounded-base bg-neutral-secondary-soft md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-neutral-primary">
+          <div class="hidden w-full md:block md:w-auto mt-4" id="navbar-default">
+            <ul
+              class="font-medium text-2xl flex flex-col p-4 md:p-0 border border-default rounded-base bg-neutral-secondary-soft md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-transparent justify-center items-center">
               <li>
-              <a href="#" class="block py-2 px-3 text-heading bg-brand rounded md:bg-transparent md:text-fg-brand md:p-0" aria-current="page">Couple</a>
+              <a href="#couple" class="block py-2 px-3 text-heading hover:text-pink-500 transition-colors md:p-0">Couple</a>
               </li>
               <li>
-              <a href="#" class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent">About</a>
+              <a href="#timeline" class="block py-2 px-3 text-heading hover:text-pink-500 transition-colors md:p-0">Timeline</a>
               </li>
               <li>
-              <a href="#" class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent">Services</a>
+              <a href="#events" class="block py-2 px-3 text-heading hover:text-pink-500 transition-colors md:p-0">Events</a>
+              </li>
+              
+              <!-- Desktop Logo -->
+              <li class="hidden md:block">
+                <h1 class="logo text-7xl text-pink-500 mx-4">S&T</h1>
+              </li>
+              
+              <li>
+                <a href="#gallery" class="block py-2 px-3 text-heading hover:text-pink-500 transition-colors md:p-0">Gallery</a>
               </li>
               <li>
-              <a href="#" class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent">Pricing</a>
-              </li>
-              <li>
-              <a href="#" class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent">Contact</a>
+                <a href="#messages" class="block py-2 px-3 text-heading hover:text-pink-500 transition-colors md:p-0">Wishes</a>
+                </li>
+                <li>
+                  <a href="#rsvp" class="block py-2 px-3 text-heading hover:text-pink-500 transition-colors md:p-0">RSVP</a>
               </li>
           </ul>
           </div>
@@ -79,7 +90,7 @@
     </header>
 
     <main class="bg-white min-h-[90vh]">
-      <section class="py-16 px-6">
+      <section class="py-16 px-6" id="couple">
         <div class="font-wedding max-w-4xl mx-auto text-center">
           <h1 class="text-5xl font-bold text-heading mb-4">Cô Dâu & Chú Rể</h1>
         </div>
@@ -250,7 +261,7 @@
           </div>
         </div>
       </section>
-      <section class="py-16 bg-slate-50 bg-gradient-to-r from-pink-50 to-rose-50">
+      <section class="py-16 bg-slate-50 bg-gradient-to-r from-pink-50 to-rose-50" id="events">
         <div class="mx-auto max-w-4xl text-center">
           <h2 class="font-wedding text-5xl font-bold text-heading">Ngày trọng đại</h2>
           <p class="mt-4 text-lg text-slate-600">Sau 7 năm, chúng tôi quyết định viết tiếp hành trình với một đám cưới ấm áp bên gia đình </br> và những người thân yêu.</p>
