@@ -285,7 +285,49 @@ body {
   animation: heart-beat 1.2s ease-in-out infinite;
 }
 
+
 .preloader-hidden {
   opacity: 0;
   pointer-events: none;
+}
+
+/* Toast Notification Styles */
+#toast-notification.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+@keyframes bounce-subtle {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.animate-bounce-subtle {
+  animation: bounce-subtle 3s ease-in-out infinite;
+}
+
+/* Typing Animation Cursor */
+.typing-cursor::after {
+  content: '|';
+  margin-left: 2px;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+
+  from,
+  to {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
 }
