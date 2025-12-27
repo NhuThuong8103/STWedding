@@ -76,3 +76,18 @@ body {
     background: linear-gradient(90deg, rgba(231, 131, 119, 0.75), rgba(231, 131, 119, 0.1));
   }
 }
+
+/* Custom Animations */
+@keyframes fade-in-up {
+  0% {
+    transform: translateY(50px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 1s ease-out forwards;
+}
