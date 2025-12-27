@@ -6,7 +6,8 @@
     <title>ST Wedding</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Playpen+Sans:wght@300;400;700&display=swap"
+      rel="stylesheet" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
@@ -15,83 +16,7 @@
       referrerpolicy="no-referrer"
     />
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-      .font-wedding {
-        font-family: 'Alex Brush', cursive;
-      }
-
-      .timeline-point {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 1.5rem;
-        height: 1.5rem;
-        border-radius: 9999px;
-        background: linear-gradient(135deg, rgba(244, 114, 182, 0.85), rgba(248, 113, 113, 0.95));
-        border: 3px solid rgba(255, 255, 255, 0.85);
-        box-shadow: 0 10px 25px rgba(244, 114, 182, 0.35);
-        z-index: 10;
-      }
-
-      .timeline-point::after {
-        content: '';
-        position: absolute;
-        inset: 0.35rem;
-        border-radius: 9999px;
-        background: #fff;
-      }
-
-      .timeline-entry {
-        position: relative;
-      }
-
-      .timeline-entry::before {
-        content: '';
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 2px;
-        top: -1.5rem;
-        bottom: -1.5rem;
-        background: linear-gradient(180deg, rgba(231, 131, 119, 0.3), rgba(231, 131, 119, 0.75));
-        z-index: 1;
-      }
-
-      .timeline-entry:first-child::before {
-        top: 50%;
-      }
-
-      .timeline-entry:last-child::before {
-        bottom: 50%;
-      }
-
-      @media (min-width: 768px) {
-        .timeline-media {
-          position: relative;
-        }
-
-        .timeline-media::before {
-          content: '';
-          position: absolute;
-          top: 50%;
-          width: 3rem;
-          height: 2px;
-          transform: translateY(-50%);
-          background: linear-gradient(90deg, rgba(231, 131, 119, 0.1), rgba(231, 131, 119, 0.75));
-          border-radius: 9999px;
-        }
-
-        .timeline-media-right::before {
-          left: -3rem;
-        }
-
-        .timeline-media-left::before {
-          right: -3rem;
-          background: linear-gradient(90deg, rgba(231, 131, 119, 0.75), rgba(231, 131, 119, 0.1));
-        }
-      }
-    </style>
+    <link rel="stylesheet" href="./assets/style.css" />
   </head>
   <body class="bg-white text-slate-800 antialiased">
     <nav class="font-wedding bg-neutral-primary absolute w-full z-20 top-0 start-0 bg-[#faebd75c]">
@@ -122,7 +47,9 @@
           </div>
       </div>
     </nav>
-    <header class="relative isolate flex min-h-screen bg-[url('./image/bg-main.jpg')] bg-cover bg-fixed bg-no-repeat flex-col bg-hero-pattern text-black p-7 align-center justify-center" id="home">
+    <header
+      class="relative isolate flex min-h-screen bg-[url('./assets/image/bg-main.jpg')] bg-cover bg-fixed bg-no-repeat flex-col bg-hero-pattern text-black p-7 align-center justify-center"
+      id="home">
       <canvas id="effectCanvas" class="absolute inset-0 pointer-events-none"></canvas>
       <div class="mx-auto flex w-full max-w-6xl flex-col items-center gap-6 px-6 py-5">
         <div class="text-center">
@@ -150,7 +77,7 @@
         <div class="max-w-4xl mx-auto text-center">
           <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div class="p-4">
-              <img src="./image/groom.jpg" alt="Chú Rể" class="w-full h-auto rounded-lg shadow-lg">
+              <img src="./assets/image/groom.jpg" alt="Chú Rể" class="w-full h-auto rounded-lg shadow-lg">
               <h1 class="mt-2 text-4xl font-semibold font-wedding">Nguyễn Văn Sang</h1>
               <div class="mt-1 text-sm text-slate-600">
                 Là chàng trai sinh ra tại vùng đất miền Trung - Quảng Nam.
@@ -165,7 +92,7 @@
               </div>
             </div>
             <div class="p-4">
-              <img src="./image/bride.jpg" alt="Cô Dâu" class="w-full h-auto rounded-lg shadow-lg">
+              <img src="./assets/image/bride.jpg" alt="Cô Dâu" class="w-full h-auto rounded-lg shadow-lg">
               <h1 class="mt-2 text-4xl font-semibold font-wedding">Nguyễn Thị Như Thương</h1>
               <div class="mt-1 text-sm text-slate-600">
                 Một cô gái nhỏ nhắn đến từ Tây Ninh, vốn yêu thích lịch sử nhưng lại học ngành IT tại Trường ĐH Công Thương.
@@ -200,7 +127,7 @@
                   </div>
                 </div>
                 <div class="timeline-media timeline-media-right w-full md:w-1/2 md:pl-12 md:text-right">
-                  <img src="./image/groom.jpg" alt="Năm 2018" class="mx-auto rounded-2xl shadow-lg md:mx-0 md:ml-auto" />
+                  <img src="./assets/image/groom.jpg" alt="Năm 2018" class="mx-auto rounded-2xl shadow-lg md:mx-0 md:ml-auto" />
                 </div>
               </article>
 
@@ -214,7 +141,7 @@
                   </div>
                 </div>
                 <div class="timeline-media timeline-media-left w-full md:w-1/2 md:pr-12 md:text-left">
-                  <img src="./image/bride.jpg" alt="Năm 2018" class="mx-auto rounded-2xl shadow-lg md:mx-0 md:mr-auto" />
+                  <img src="./assets/image/bride.jpg" alt="Năm 2018" class="mx-auto rounded-2xl shadow-lg md:mx-0 md:mr-auto" />
                 </div>
               </article>
 
@@ -228,7 +155,7 @@
                   </div>
                 </div>
                 <div class="timeline-media timeline-media-right w-full md:w-1/2 md:pl-12 md:text-right">
-                  <img src="./image/bg-main.jpg" alt="Năm 2020" class="mx-auto rounded-2xl shadow-lg md:mx-0 md:ml-auto" />
+                  <img src="./assets/image/bg-main.jpg" alt="Năm 2020" class="mx-auto rounded-2xl shadow-lg md:mx-0 md:ml-auto" />
                 </div>
               </article>
 
@@ -242,7 +169,7 @@
                   </div>
                 </div>
                 <div class="timeline-media timeline-media-left w-full md:w-1/2 md:pr-12">
-                  <img src="./image/groom.jpg" alt="Năm 2021" class="mx-auto rounded-2xl shadow-lg md:mx-0 md:mr-auto" />
+                  <img src="./assets/image/groom.jpg" alt="Năm 2021" class="mx-auto rounded-2xl shadow-lg md:mx-0 md:mr-auto" />
                 </div>
               </article>
 
@@ -256,7 +183,7 @@
                   </div>
                 </div>
                 <div class="timeline-media timeline-media-right w-full md:w-1/2 md:pl-12 md:text-right">
-                  <img src="./image/bride.jpg" alt="Năm 2022" class="mx-auto rounded-2xl shadow-lg md:mx-0 md:ml-auto" />
+                  <img src="./assets/image/bride.jpg" alt="Năm 2022" class="mx-auto rounded-2xl shadow-lg md:mx-0 md:ml-auto" />
                 </div>
               </article>
 
@@ -270,7 +197,7 @@
                   </div>
                 </div>
                 <div class="timeline-media timeline-media-left w-full md:w-1/2 md:pr-12">
-                  <img src="./image/bg-main.jpg" alt="Năm 2023" class="mx-auto rounded-2xl shadow-lg md:mx-0 md:mr-auto" />
+                  <img src="./assets/image/bg-main.jpg" alt="Năm 2023" class="mx-auto rounded-2xl shadow-lg md:mx-0 md:mr-auto" />
                 </div>
               </article>
 
@@ -284,7 +211,7 @@
                   </div>
                 </div>
                 <div class="timeline-media timeline-media-right w-full md:w-1/2 md:pl-12 md:text-right">
-                  <img src="./image/groom.jpg" alt="Năm 2024" class="mx-auto rounded-2xl shadow-lg md:mx-0 md:ml-auto" />
+                  <img src="./assets/image/groom.jpg" alt="Năm 2024" class="mx-auto rounded-2xl shadow-lg md:mx-0 md:ml-auto" />
                 </div>
               </article>
 
@@ -298,7 +225,7 @@
                   </div>
                 </div>
                 <div class="timeline-media timeline-media-left w-full md:w-1/2 md:pr-12">
-                  <img src="./image/bride.jpg" alt="Năm 2025" class="mx-auto rounded-2xl shadow-lg md:mx-0 md:mr-auto" />
+                  <img src="./assets/image/bride.jpg" alt="Năm 2025" class="mx-auto rounded-2xl shadow-lg md:mx-0 md:mr-auto" />
                 </div>
               </article>
             </div>
@@ -371,85 +298,136 @@
           </div>
           <div class="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-[250px] p-4">
             <!-- Gallery Item 1 (Large Feature) -->
-            <div class="md:col-span-2 md:row-span-2 relative group overflow-hidden rounded-xl cursor-pointer shadow-lg"
-              data-lightbox-src="./image/bg-main.jpg">
-              <img src="./image/bg-main.jpg" alt="Khoảnh khắc 1"
+            <div
+              class="md:col-span-2 md:row-span-2 relative group overflow-hidden rounded-xl cursor-pointer shadow-md hover:shadow-2xl hover:shadow-pink-200 transition-all duration-500 ease-out"
+              data-lightbox-src="./assets/image/bg-main.jpg">
+              <img src="./assets/image/bg-main.jpg" alt="Khoảnh khắc 1"
                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
               <div
-                class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                class="absolute inset-0 bg-gradient-to-r from-pink-50 to-rose-50 opacity-0 group-hover:opacity-20 transition-opacity duration-300 flex items-center justify-center">
                 <div class="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                  <i class="fa fa-heart text-white text-3xl animate-pulse"></i>
+                  <i class="fa fa-heart text-pink-600 text-4xl animate-pulse"></i>
                 </div>
               </div>
+              <div
+                class="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full shadow-sm flex items-center gap-1.5 opacity-90">
+                <i class="fa fa-heart text-red-400 text-sm"></i>
+                <span class="text-xs font-semibold text-slate-600">128</span>
+              </div>
             </div>
-          
+
             <!-- Gallery Item 2 -->
-            <div class="relative group overflow-hidden rounded-xl cursor-pointer shadow-lg" data-lightbox-src="./image/bride.jpg">
-              <img src="./image/bride.jpg" alt="Khoảnh khắc 2"
+            <div
+              class="relative group overflow-hidden rounded-xl cursor-pointer shadow-md hover:shadow-2xl hover:shadow-pink-200 transition-all duration-500 ease-out"
+              data-lightbox-src="./assets/image/bride.jpg">
+              <img src="./assets/image/bride.jpg" alt="Khoảnh khắc 2"
                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
               <div
-                class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                class="absolute inset-0 bg-gradient-to-r from-pink-50 to-rose-50 opacity-0 group-hover:opacity-20 transition-opacity duration-300 flex items-center justify-center">
                 <div class="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                  <i class="fa fa-heart text-white text-3xl animate-pulse"></i>
+                  <i class="fa fa-heart text-pink-600 text-4xl animate-pulse"></i>
                 </div>
               </div>
+              <div
+                class="absolute bottom-3 right-3 bg-white/90 backdrop-blur-sm px-2.5 py-1 rounded-full shadow-sm flex items-center gap-1 opacity-90">
+                <i class="fa fa-heart text-red-400 text-xs"></i>
+                <span class="text-[10px] font-semibold text-slate-600">85</span>
+              </div>
             </div>
-          
+
             <!-- Gallery Item 3 -->
-            <div class="relative group overflow-hidden rounded-xl cursor-pointer shadow-lg" data-lightbox-src="./image/groom.jpg">
-              <img src="./image/groom.jpg" alt="Khoảnh khắc 3"
+            <div
+              class="relative group overflow-hidden rounded-xl cursor-pointer shadow-md hover:shadow-2xl hover:shadow-pink-200 transition-all duration-500 ease-out"
+              data-lightbox-src="./assets/image/groom.jpg">
+              <img src="./assets/image/groom.jpg" alt="Khoảnh khắc 3"
                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
               <div
-                class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                class="absolute inset-0 bg-gradient-to-r from-pink-50 to-rose-50 opacity-0 group-hover:opacity-20 transition-opacity duration-300 flex items-center justify-center">
                 <div class="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                  <i class="fa fa-heart text-white text-3xl animate-pulse"></i>
+                  <i class="fa fa-heart text-pink-600 text-4xl animate-pulse"></i>
                 </div>
               </div>
+              <div
+                class="absolute bottom-3 right-3 bg-white/90 backdrop-blur-sm px-2.5 py-1 rounded-full shadow-sm flex items-center gap-1 opacity-90">
+                <i class="fa fa-heart text-red-400 text-xs"></i>
+                <span class="text-[10px] font-semibold text-slate-600">92</span>
+              </div>
             </div>
-          
+
             <!-- Gallery Item 4 (Wide) -->
-            <div class="md:col-span-3 relative group overflow-hidden rounded-xl cursor-pointer shadow-lg"
-              data-lightbox-src="./image/bg-main.jpg">
-              <img src="./image/bg-main.jpg" alt="Khoảnh khắc 4"
+            <div
+              class="relative group overflow-hidden rounded-xl cursor-pointer shadow-md hover:shadow-2xl hover:shadow-pink-200 transition-all duration-500 ease-out"
+              data-lightbox-src="./assets/image/bg-main.jpg">
+              <img src="./assets/image/bg-main.jpg" alt="Khoảnh khắc 4"
                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
               <div
-                class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                class="absolute inset-0 bg-gradient-to-r from-pink-50 to-rose-50 opacity-0 group-hover:opacity-20 transition-opacity duration-300 flex items-center justify-center">
                 <div class="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                  <i class="fa fa-heart text-white text-3xl animate-pulse"></i>
+                  <i class="fa fa-heart text-pink-600 text-4xl animate-pulse"></i>
                 </div>
               </div>
+              <div
+                class="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full shadow-sm flex items-center gap-1.5 opacity-90">
+                <i class="fa fa-heart text-red-400 text-sm"></i>
+                <span class="text-xs font-semibold text-slate-600">156</span>
+              </div>
             </div>
-          
+
             <!-- Gallery Item 5 -->
-            <div class="relative group overflow-hidden rounded-xl cursor-pointer shadow-lg" data-lightbox-src="./image/groom.jpg">
-              <img src="./image/groom.jpg" alt="Khoảnh khắc 5"
+            <div
+              class="md:col-span-2 md:row-span-2 relative group overflow-hidden rounded-xl cursor-pointer shadow-md hover:shadow-2xl hover:shadow-pink-200 transition-all duration-500 ease-out"
+              data-lightbox-src="./assets/image/groom.jpg">
+              <img src="./assets/image/groom.jpg" alt="Khoảnh khắc 5"
                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
               <div
-                class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                class="absolute inset-0 bg-gradient-to-r from-pink-50 to-rose-50 opacity-0 group-hover:opacity-20 transition-opacity duration-300 flex items-center justify-center">
                 <div class="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                  <i class="fa fa-heart text-white text-3xl animate-pulse"></i>
+                  <i class="fa fa-heart text-pink-600 text-4xl animate-pulse"></i>
                 </div>
               </div>
+              <div
+                class="absolute bottom-3 right-3 bg-white/90 backdrop-blur-sm px-2.5 py-1 rounded-full shadow-sm flex items-center gap-1 opacity-90">
+                <i class="fa fa-heart text-red-400 text-xs"></i>
+                <span class="text-[10px] font-semibold text-slate-600">74</span>
+              </div>
             </div>
-          
+
             <!-- Gallery Item 6 -->
-            <div class="relative group overflow-hidden rounded-xl cursor-pointer shadow-lg" data-lightbox-src="./image/bride.jpg">
-              <img src="./image/bride.jpg" alt="Khoảnh khắc 6"
+            <div
+              class="relative group overflow-hidden rounded-xl cursor-pointer shadow-md hover:shadow-2xl hover:shadow-pink-200 transition-all duration-500 ease-out"
+              data-lightbox-src="./assets/image/bride.jpg">
+              <img src="./assets/image/bride.jpg" alt="Khoảnh khắc 6"
                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
               <div
-                class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                class="absolute inset-0 bg-gradient-to-r from-pink-50 to-rose-50 opacity-0 group-hover:opacity-20 transition-opacity duration-300 flex items-center justify-center">
                 <div class="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                  <i class="fa fa-heart text-white text-3xl animate-pulse"></i>
+                  <i class="fa fa-heart text-pink-600 text-4xl animate-pulse"></i>
                 </div>
+              </div>
+              <div
+                class="absolute bottom-3 right-3 bg-white/90 backdrop-blur-sm px-2.5 py-1 rounded-full shadow-sm flex items-center gap-1 opacity-90">
+                <i class="fa fa-heart text-red-400 text-xs"></i>
+                <span class="text-[10px] font-semibold text-slate-600">103</span>
               </div>
             </div>
           </div>
-          
+
           <!-- Lightbox Modal (Hidden by default) -->
-          <div id="lightbox" class="fixed inset-0 z-50 hidden bg-black/90 backdrop-blur-sm flex items-center justify-center p-4">
+          <div id="lightbox"
+            class="fixed inset-0 z-50 hidden bg-pink-50/95 backdrop-blur-sm flex flex-col items-center justify-center p-4">
             <button id="lightbox-close"
-              class="absolute top-4 right-4 text-white text-4xl hover:text-brand-300 focus:outline-none">&times;</button>
-            <img id="lightbox-img" src="" alt="Full size" class="max-h-[90vh] max-w-full rounded-lg shadow-2xl object-contain">
+              class="absolute top-4 right-4 text-brand-400 text-4xl hover:text-brand-600 focus:outline-none z-50 transition-colors">&times;</button>
+
+            <button id="lightbox-prev" class="absolute left-4 top-1/2 -translate-y-1/2 text-brand-400 text-4xl hover:text-brand-600 focus:outline-none z-50 p-4 transition-colors">
+              <i class="fa fa-chevron-left"></i>
+            </button>
+
+            <img id="lightbox-img" src="" alt="Full size" class="max-h-[85vh] max-w-full rounded-lg shadow-2xl object-contain">
+            <p id="lightbox-caption" class="text-brand-500 text-xl mt-4 font-wedding tracking-wider text-center z-50 drop-shadow-sm font-semibold"></p>
+
+            <button id="lightbox-next" class="absolute right-4 top-1/2 -translate-y-1/2 text-brand-400 text-4xl hover:text-brand-600 focus:outline-none z-50 p-4 transition-colors">
+              <i class="fa fa-chevron-right"></i>
+            </button>
           </div>
         </div>
       </section>
@@ -525,7 +503,8 @@
       </div>
     </footer>
 
-    <script src="script.js" defer></script>
+    <script src="./assets/script.js" defer></script>
+    <script src="./assets/lightbox.js" defer></script>
 
     <script>
       const canvas = document.getElementById('effectCanvas')
