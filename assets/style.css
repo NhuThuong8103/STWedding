@@ -201,3 +201,14 @@ body {
 .animate-scroll-dot {
   animation: scroll-dot 2s ease-in-out infinite;
 }
+
+/* Messages Carousel */
+.message-dot.active-dot {
+  background-color: white !important;
+  width: 1.5rem;
+  opacity: 1;
+}
+
+#messages-carousel>div {
+  width: 100%;
+}
