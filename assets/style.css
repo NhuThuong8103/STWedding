@@ -212,3 +212,25 @@ body {
 #messages-carousel>div {
   width: 100%;
 }
+
+/* Preloader Animations */
+@keyframes heart-beat {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.15);
+  }
+}
+
+.animate-heart-beat {
+  animation: heart-beat 1.2s ease-in-out infinite;
+}
+
+.preloader-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
