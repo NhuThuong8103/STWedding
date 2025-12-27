@@ -162,31 +162,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  if (rsvpForm && rsvpStatus) {
-    rsvpForm.addEventListener('submit', (event) => {
-      event.preventDefault();
-
-      const formData = new FormData(rsvpForm);
-      const guestName = formData.get('guestName');
-
-      if (!guestName) {
-        rsvpStatus.textContent = 'Vui lòng nhập tên của bạn.';
-        rsvpStatus.classList.remove('text-brand-500');
-        rsvpStatus.classList.add('text-red-500');
-        return;
-      }
-
-      const attending = formData.get('attending') === 'yes';
-
-      rsvpStatus.textContent = attending
-        ? `Cảm ơn ${guestName}! Chúng tôi rất mong được gặp bạn tại lễ cưới.`
-        : `Cảm ơn ${guestName}. Chúng tôi rất tiếc khi không thể gặp bạn, nhưng chúc bạn mọi điều tốt lành!`;
-      rsvpStatus.classList.remove('text-red-500');
-      rsvpStatus.classList.add('text-brand-500');
-
-      rsvpForm.reset();
-    });
-  }
   const scrollDownBtn = document.getElementById('scroll-down');
   if (scrollDownBtn) {
     scrollDownBtn.addEventListener('click', () => {
@@ -232,15 +207,133 @@ document.addEventListener('DOMContentLoaded', () => {
     updateCarousel(0);
     startCarousel();
   }
+
+  // Toast Notification Logic
+  const toast = document.getElementById('toast-notification');
+  const toastMessage = document.getElementById('toast-message');
+  const toastClose = document.getElementById('toast-close');
+
+  const fakeMessages = [
+    "Một người bạn vừa gửi lời chúc đến đôi bạn.",
+    "Ảnh mới vừa được thêm vào bộ sưu tập.",
+    "Có 5 người đang xem thiệp mời này.",
+    "Một lời chúc mới từ 'Người em' vừa được gửi.",
+    "Thêm một khoảnh khắc đẹp vừa được chia sẻ.",
+    "Vừa có thêm khách mời xác nhận tham dự qua RSVP.",
+    "Bạn thân của chú rể vừa gửi một lời nhắn nhủ dễ thương.",
+    "Đã có 10 lời chúc được gửi từ gia đình và bạn bè.",
+    "Một bức ảnh kỷ niệm từ năm 2018 vừa được đăng tải.",
+    "Phụ huynh hai bên đang chuẩn bị những món quà đặc biệt.",
+    "Nhóm bạn đại học vừa gửi lời chúc trăm năm hạnh phúc.",
+    "Có khách mời vừa chọn 'Chắc chắn rồi!' tại RSVP.",
+    "Lời chúc ngọt ngào từ 'Người chị' vừa cập bến.",
+    "Sự kiện 'Lễ Vu Quy' đang thu hút sự quan tâm của nhiều người."
+  ];
+
+  const showToast = (customContent = null) => {
+    if (!toast || !toastMessage) return;
+
+    // Use custom content if provided, otherwise pick a random fake message
+    if (customContent) {
+      toastMessage.innerHTML = customContent;
+    } else {
+      const randomIndex = Math.floor(Math.random() * fakeMessages.length);
+      toastMessage.textContent = fakeMessages[randomIndex];
+    }
+
+    // Show the toast
+    toast.classList.add('show');
+
+    // Auto hide after 10 seconds
+    setTimeout(() => {
+      toast.classList.remove('show');
+    }, 5000);
+  };
+
+  if (toast && toastMessage && toastClose) {
+    toastClose.addEventListener('click', () => {
+      toast.classList.remove('show');
+    });
+
+    // Initial show after 30 seconds
+    setTimeout(showToast, 5000);
+
+    // Show every 1 minute (60000ms)
+    setInterval(showToast, 30000);
+  }
+
+  if (rsvpForm && rsvpStatus) {
+    rsvpForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+
+      const formData = new FormData(rsvpForm);
+      const guestName = formData.get('guestName');
+      const guestMessage = formData.get('message');
+
+      if (!guestName) {
+        rsvpStatus.textContent = 'Vui lòng nhập tên của bạn.';
+        rsvpStatus.classList.remove('text-brand-500');
+        rsvpStatus.classList.add('text-red-500');
+        return;
+      }
+
+      const attending = formData.get('attending') === 'yes';
+
+      rsvpStatus.textContent = attending
+        ? `Cảm ơn ${guestName}! Chúng tôi rất mong được gặp bạn tại lễ cưới.`
+        : `Cảm ơn ${guestName}. Chúng tôi rất tiếc khi không thể gặp bạn, nhưng chúc bạn mọi điều tốt lành!`;
+      rsvpStatus.classList.remove('text-red-500');
+      rsvpStatus.classList.add('text-brand-500');
+
+      // Show toast with the actual message
+      const toastContent = guestMessage
+        ? `<strong>${guestName}</strong> vừa chia sẻ: "${guestMessage.substring(0, 50)}${guestMessage.length > 50 ? '...' : ''}"`
+        : `<strong>${guestName}</strong> vừa gửi lời chúc đến đôi bạn qua RSVP.`;
+
+      showToast(toastContent);
+
+      rsvpForm.reset();
+    });
+  }
 });
 
 // Hide Preloader on Window Load
 window.addEventListener('load', () => {
   const preloader = document.getElementById('preloader');
+
+  const typeWriter = (element, text, speed = 100) => {
+    element.textContent = '';
+    element.classList.add('typing-cursor');
+    let i = 0;
+    const type = () => {
+      if (i < text.length) {
+        element.textContent += text.charAt(i);
+        i++;
+        setTimeout(type, speed);
+      } else {
+        setTimeout(() => {
+          element.classList.remove('typing-cursor');
+        }, 1500); // Leave cursor for a bit after finishing
+      }
+    };
+    type();
+  };
+
   if (preloader) {
     // Add a slight delay to ensure a smooth transition
     setTimeout(() => {
       preloader.classList.add('preloader-hidden');
+
+      // Start typing animation after preloader starts hiding
+      const typingElement = document.getElementById('typing-text');
+      if (typingElement) {
+        const originalText = typingElement.textContent;
+        // Small delay to let preloader fade out a bit
+        setTimeout(() => {
+          typeWriter(typingElement, originalText, 150);
+        }, 800);
+      }
+
       // Remove from DOM after transition
       preloader.addEventListener('transitionend', () => {
         preloader.style.display = 'none';
