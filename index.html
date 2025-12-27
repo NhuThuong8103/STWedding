@@ -56,6 +56,13 @@
           <h1 class="text-7xl font-wedding text-white drop-shadow-lg">Thương & Sang</h1>
           <p class="text-xl text-white mt-2">Chúng tôi sắp cưới! 30 tháng 4 năm 2026</p>
         </div>
+      <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 cursor-pointer z-10"
+        id="scroll-down">
+        <span class="text-white text-sm uppercase tracking-[0.3em] font-medium opacity-80">Scroll</span>
+        <div class="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center p-1">
+          <div class="w-1 h-2 bg-white rounded-full animate-scroll-dot"></div>
+        </div>
+        <i class="fa-solid fa-chevron-down text-white text-xl animate-bounce mt-1"></i>
       </div>
     </header>
 
@@ -581,8 +588,16 @@
       </div>
     </footer>
 
+    <script src="./assets/music.js" defer></script>
     <script src="./assets/script.js" defer></script>
     <script src="./assets/lightbox.js" defer></script>
+
+    <!-- Music Control -->
+    <audio id="bg-music" src="https://assets.cinelove.me/mp3/0e470330-e4d4-4fdc-8d99-830aab66916c.mp3" loop></audio>
+    <button id="music-control" class="music-control bg-pink-200/80 backdrop-blur shadow-lg border border-pink-200">
+      <i class="fa-solid fa-compact-disc music-icon-playing text-brand text-2xl"></i>
+      <i class="fa-solid fa-volume-xmark music-icon-muted text-brand text-2xl"></i>
+    </button>
 
     <script>
       const canvas = document.getElementById('effectCanvas')

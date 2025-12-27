@@ -162,33 +162,39 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  if (!rsvpForm || !rsvpStatus) return;
+  if (rsvpForm && rsvpStatus) {
+    rsvpForm.addEventListener('submit', (event) => {
+      event.preventDefault();
 
-  rsvpForm.addEventListener('submit', (event) => {
-    event.preventDefault();
+      const formData = new FormData(rsvpForm);
+      const guestName = formData.get('guestName');
 
-    const formData = new FormData(rsvpForm);
-    const guestName = formData.get('guestName');
+      if (!guestName) {
+        rsvpStatus.textContent = 'Vui lòng nhập tên của bạn.';
+        rsvpStatus.classList.remove('text-brand-500');
+        rsvpStatus.classList.add('text-red-500');
+        return;
+      }
 
-    if (!guestName) {
-      rsvpStatus.textContent = 'Vui lòng nhập tên của bạn.';
-      rsvpStatus.classList.remove('text-brand-500');
-      rsvpStatus.classList.add('text-red-500');
-      return;
-    }
+      const attending = formData.get('attending') === 'yes';
 
-    const attending = formData.get('attending') === 'yes';
+      rsvpStatus.textContent = attending
+        ? `Cảm ơn ${guestName}! Chúng tôi rất mong được gặp bạn tại lễ cưới.`
+        : `Cảm ơn ${guestName}. Chúng tôi rất tiếc khi không thể gặp bạn, nhưng chúc bạn mọi điều tốt lành!`;
+      rsvpStatus.classList.remove('text-red-500');
+      rsvpStatus.classList.add('text-brand-500');
 
-    rsvpStatus.textContent = attending
-      ? `Cảm ơn ${guestName}! Chúng tôi rất mong được gặp bạn tại lễ cưới.`
-      : `Cảm ơn ${guestName}. Chúng tôi rất tiếc khi không thể gặp bạn, nhưng chúc bạn mọi điều tốt lành!`;
-    rsvpStatus.classList.remove('text-red-500');
-    rsvpStatus.classList.add('text-brand-500');
-
-    rsvpForm.reset();
-  });
+      rsvpForm.reset();
+    });
+  }
+  const scrollDownBtn = document.getElementById('scroll-down');
+  if (scrollDownBtn) {
+    scrollDownBtn.addEventListener('click', () => {
+      const mainContent = document.querySelector('main');
+      if (mainContent) {
+        mainContent.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  }
 });
-
-// --- Lightbox Logic ---
-
 
