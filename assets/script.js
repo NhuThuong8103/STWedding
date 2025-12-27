@@ -234,5 +234,20 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
+// Hide Preloader on Window Load
+window.addEventListener('load', () => {
+  const preloader = document.getElementById('preloader');
+  if (preloader) {
+    // Add a slight delay to ensure a smooth transition
+    setTimeout(() => {
+      preloader.classList.add('preloader-hidden');
+      // Remove from DOM after transition
+      preloader.addEventListener('transitionend', () => {
+        preloader.style.display = 'none';
+      }, { once: true });
+    }, 1000);
+  }
+});
+
 
 
