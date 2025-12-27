@@ -47,7 +47,7 @@
       }
     });
 
-    if (Math.random() < 0.02) {
+    if (Math.random() < 0.2) {
       createHeart();
     }
 

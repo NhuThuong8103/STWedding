@@ -13,8 +13,10 @@ window.addEventListener('load', () => {
         setTimeout(type, speed);
       } else {
         setTimeout(() => {
-          element.classList.remove('typing-cursor');
-        }, 1500); // Leave cursor for a bit after finishing
+          element.textContent = '';
+          i = 0;
+          type();
+        }, 3000); // Wait 3 seconds before restarting the loop
       }
     };
     type();

@@ -1,0 +1,102 @@
+/* Speech Bubble Styles */
+.speech-bubble {
+  position: absolute;
+  background: white;
+  border-radius: 15px;
+  padding: 8px 16px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(244, 114, 182, 0.2);
+  z-index: 20;
+  font-family: 'Playpen Sans', cursive;
+  font-size: 0.85rem;
+  color: #4b5563;
+  pointer-events: none;
+  white-space: nowrap;
+  animation: float 3s ease-in-out infinite;
+}
+
+.speech-bubble::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 8px 8px 0;
+  border-style: solid;
+  border-color: white transparent transparent;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.speech-bubble .quote-icon {
+  color: #f472b6;
+  font-size: 0.7rem;
+  vertical-align: super;
+  margin: 0 2px;
+}
+
+/* Social Overlay Styles */
+.social-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.125);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+  border-radius: 0.5rem;
+  /* Matches image rounded-lg */
+  backdrop-filter: blur(2px);
+}
+
+.group:hover .social-overlay {
+  opacity: 1;
+}
+
+.social-icon-btn {
+  width: 40px;
+  height: 40px;
+  background: white;
+  color: #4b5563;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.social-overlay .social-icon-btn {
+  transform: translateY(20px);
+  box-shadow: none;
+}
+
+.group:hover .social-icon-btn {
+  transform: translateY(0);
+}
+
+.group:hover .social-icon-btn:nth-child(1) {
+  transition-delay: 0.1s;
+}
+
+.group:hover .social-icon-btn:nth-child(2) {
+  transition-delay: 0.2s;
+}
+
+.social-icon-btn:hover {
+  background: #f472b6;
+  color: white;
+  transform: scale(1.1) rotate(5deg);
+}
