@@ -251,39 +251,117 @@
         </div>
       </section>
       <section class="py-16 px-6" id="countdown">
-        <div class="mx-auto flex max-w-4xl flex-col items-center gap-8 text-center">
-          <div>
-            <h2 class="font-wedding text-5xl font-semibold text-heading">Cùng đếm ngược thời gian</h2>
-            <p class="mt-2 text-lg text-slate-600">Hãy chia sẻ ngày bạn mong chờ nhất, và chúng ta cùng đếm ngược nhé!</p>
+        <div class="mx-auto flex max-w-6xl flex-col md:flex-row items-center justify-center gap-12">
+        
+          <!-- Left Column: Countdown -->
+          <div class="flex w-full md:w-1/2 flex-col items-center gap-8 text-center">
+            <div>
+              <h2 class="font-wedding text-5xl font-semibold text-heading text-pink-400">Cùng đếm ngược thời gian</h2>
+              </div>
+
+            <div class="rounded-xl bg-white/80 px-6 py-4 shadow-md backdrop-blur">
+              <p class="text-sm font-medium uppercase tracking-[0.35em] text-brand">Ngày trọng đại</p>
+              <p class="mt-1 text-2xl font-semibold text-heading" data-countdown-target>30 tháng 4 năm 2026 · 10:00</p>
+            </div>
+
+            <div class="grid w-full max-w-xl grid-cols-2 gap-4 sm:grid-cols-4" data-countdown-display>
+              <div class="rounded-2xl bg-white/70 p-4 shadow-md backdrop-blur">
+                <div class="text-4xl font-bold text-brand" data-countdown-days>--</div>
+                <div class="mt-2 text-xs uppercase tracking-[0.3em] text-slate-500">Ngày</div>
+              </div>
+              <div class="rounded-2xl bg-white/70 p-4 shadow-md backdrop-blur">
+                <div class="text-4xl font-bold text-brand" data-countdown-hours>--</div>
+                <div class="mt-2 text-xs uppercase tracking-[0.3em] text-slate-500">Giờ</div>
+              </div>
+              <div class="rounded-2xl bg-white/70 p-4 shadow-md backdrop-blur">
+                <div class="text-4xl font-bold text-brand" data-countdown-minutes>--</div>
+                <div class="mt-2 text-xs uppercase tracking-[0.3em] text-slate-500">Phút</div>
+              </div>
+              <div class="rounded-2xl bg-white/70 p-4 shadow-md backdrop-blur">
+                <div class="text-4xl font-bold text-brand" data-countdown-seconds>--</div>
+                <div class="mt-2 text-xs uppercase tracking-[0.3em] text-slate-500">Giây</div>
+              </div>
+              </div>
+
+            <p class="text-sm text-slate-500" data-countdown-message>
+              Chúng mình đang đếm ngược từng phút, từng giây đến ngày trọng đại!
+              </p>
+          </div>
+          
+          <!-- Right Column: Calendar Component -->
+          <div class="w-full md:w-1/2 flex justify-center">
+            <div
+              class="relative w-full max-w-md overflow-hidden rounded-lg shadow-xl bg-white text-slate-800 transform hover:scale-[1.02] transition-transform duration-500">
+              <!-- Background Image Layer -->
+              <div class="absolute inset-0 z-0">
+                <img src="./assets/image/bg-main.jpg" alt="Background"
+                  class="w-full h-full object-cover opacity-90 brightness-75">
+                <div class="absolute inset-0 bg-white/10 backdrop-blur-[2px]"></div>
+              </div>
+          
+              <!-- Content Layer -->
+              <div class="relative z-10 p-10 text-white">
+                <div class="text-right mb-8">
+                  <h3 class="font-wedding text-7xl text-white drop-shadow-md">Tháng 4</h3>
+                  <p class="font-wedding text-5xl text-white drop-shadow-md mt-2">2026</p>
+                </div>
+          
+                <div class="grid grid-cols-7 gap-3 text-center text-base font-medium mb-3 opacity-90">
+                  <div>CN</div>
+                  <div>T2</div>
+                  <div>T3</div>
+                  <div>T4</div>
+                  <div>T5</div>
+                  <div>T6</div>
+                  <div>T7</div>
+                </div>
+                <div class="grid grid-cols-7 gap-3 text-center text-base font-semibold">
+                  <!-- April 2026 starts on Wednesday (1st) -->
+                  <!-- Empty cells for Sun, Mon, Tue -->
+                  <div></div>
+                  <div></div>
+                  <div></div>
+          
+                  <div class="p-2">1</div>
+                  <div class="p-2">2</div>
+                  <div class="p-2">3</div>
+                  <div class="p-2">4</div>
+                  <div class="p-2">5</div>
+                  <div class="p-2">6</div>
+                  <div class="p-2">7</div>
+                  <div class="p-2">8</div>
+                  <div class="p-2">9</div>
+                  <div class="p-2">10</div>
+                  <div class="p-2">11</div>
+                  <div class="p-2">12</div>
+                  <div class="p-2">13</div>
+                  <div class="p-2">14</div>
+                  <div class="p-2">15</div>
+                  <div class="p-2">16</div>
+                  <div class="p-2">17</div>
+                  <div class="p-2">18</div>
+                  <div class="p-2">19</div>
+                  <div class="p-2">20</div>
+                  <div class="p-2">21</div>
+                  <div class="p-2">22</div>
+                  <div class="p-2">23</div>
+                  <div class="p-2">24</div>
+                  <div class="p-2">25</div>
+                  <div class="p-2">26</div>
+                  <div class="p-2">27</div>
+                  <div class="p-2">28</div>
+                  <div class="p-2">29</div>
+          
+                  <!-- 30th is the wedding day -->
+                  <div class="relative flex items-center justify-center">
+                    <i class="fa fa-heart text-pink-400 text-4xl absolute animate-pulse"></i>
+                    <span class="relative z-10 text-white font-bold">30</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <div class="rounded-xl bg-white/80 px-6 py-4 shadow-md backdrop-blur">
-            <p class="text-sm font-medium uppercase tracking-[0.35em] text-brand">Ngày trọng đại</p>
-            <p class="mt-1 text-2xl font-semibold text-heading" data-countdown-target>30 tháng 4 năm 2026 · 10:00</p>
-          </div>
-
-          <div class="grid w-full max-w-3xl grid-cols-2 gap-4 sm:grid-cols-4" data-countdown-display>
-            <div class="rounded-2xl bg-white/70 p-6 shadow-md backdrop-blur">
-              <div class="text-5xl font-bold text-brand" data-countdown-days>--</div>
-              <div class="mt-2 text-sm uppercase tracking-[0.3em] text-slate-500">Ngày</div>
-            </div>
-            <div class="rounded-2xl bg-white/70 p-6 shadow-md backdrop-blur">
-              <div class="text-5xl font-bold text-brand" data-countdown-hours>--</div>
-              <div class="mt-2 text-sm uppercase tracking-[0.3em] text-slate-500">Giờ</div>
-            </div>
-            <div class="rounded-2xl bg-white/70 p-6 shadow-md backdrop-blur">
-              <div class="text-5xl font-bold text-brand" data-countdown-minutes>--</div>
-              <div class="mt-2 text-sm uppercase tracking-[0.3em] text-slate-500">Phút</div>
-            </div>
-            <div class="rounded-2xl bg-white/70 p-6 shadow-md backdrop-blur">
-              <div class="text-5xl font-bold text-brand" data-countdown-seconds>--</div>
-              <div class="mt-2 text-sm uppercase tracking-[0.3em] text-slate-500">Giây</div>
-            </div>
-          </div>
-
-          <p class="text-sm text-slate-500" data-countdown-message>
-            Chúng ta đang đếm ngược đến ngày trọng đại!
-          </p>
         </div>
       </section>
       <section class="bg-stone-50 py-20" id="gallery">
@@ -300,8 +378,7 @@
             <!-- Gallery Item 1 (Large Feature) -->
             <div
               class="md:col-span-2 md:row-span-2 relative group overflow-hidden rounded-xl cursor-pointer shadow-md hover:shadow-2xl hover:shadow-pink-200 transition-all duration-500 ease-out"
-              data-lightbox-src="./assets/image/bg-main.jpg"
-              data-animate="fade-in-up" data-animate-delay="0.2">
+              data-lightbox-src="./assets/image/bg-main.jpg">
               <img src="./assets/image/bg-main.jpg" alt="Khoảnh khắc 1"
                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
               <div
@@ -320,8 +397,7 @@
             <!-- Gallery Item 2 -->
             <div
               class="relative group overflow-hidden rounded-xl cursor-pointer shadow-md hover:shadow-2xl hover:shadow-pink-200 transition-all duration-500 ease-out"
-              data-lightbox-src="./assets/image/bride.jpg"
-              data-animate="fade-in-up" data-animate-delay="0.4">
+              data-lightbox-src="./assets/image/bride.jpg">
               <img src="./assets/image/bride.jpg" alt="Khoảnh khắc 2"
                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
               <div
@@ -340,8 +416,7 @@
             <!-- Gallery Item 3 -->
             <div
               class="relative group overflow-hidden rounded-xl cursor-pointer shadow-md hover:shadow-2xl hover:shadow-pink-200 transition-all duration-500 ease-out"
-              data-lightbox-src="./assets/image/groom.jpg"
-              data-animate="fade-in-up" data-animate-delay="0.6">
+              data-lightbox-src="./assets/image/groom.jpg">
               <img src="./assets/image/groom.jpg" alt="Khoảnh khắc 3"
                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
               <div
@@ -360,8 +435,7 @@
             <!-- Gallery Item 4 (Wide) -->
             <div
               class="relative group overflow-hidden rounded-xl cursor-pointer shadow-md hover:shadow-2xl hover:shadow-pink-200 transition-all duration-500 ease-out"
-              data-lightbox-src="./assets/image/bg-main.jpg"
-              data-animate="fade-in-up" data-animate-delay="0.7">
+              data-lightbox-src="./assets/image/bg-main.jpg">
               <img src="./assets/image/bg-main.jpg" alt="Khoảnh khắc 4"
                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
               <div
@@ -380,8 +454,7 @@
             <!-- Gallery Item 5 -->
             <div
               class="md:col-span-2 md:row-span-2 relative group overflow-hidden rounded-xl cursor-pointer shadow-md hover:shadow-2xl hover:shadow-pink-200 transition-all duration-500 ease-out"
-              data-lightbox-src="./assets/image/groom.jpg"
-              data-animate="fade-in-up" data-animate-delay="0.5">
+              data-lightbox-src="./assets/image/groom.jpg">
               <img src="./assets/image/groom.jpg" alt="Khoảnh khắc 5"
                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
               <div
@@ -400,8 +473,7 @@
             <!-- Gallery Item 6 -->
             <div
               class="relative group overflow-hidden rounded-xl cursor-pointer shadow-md hover:shadow-2xl hover:shadow-pink-200 transition-all duration-500 ease-out"
-              data-lightbox-src="./assets/image/bride.jpg"
-              data-animate="fade-in-up" data-animate-delay="0.8">
+              data-lightbox-src="./assets/image/bride.jpg">
               <img src="./assets/image/bride.jpg" alt="Khoảnh khắc 6"
                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
               <div
