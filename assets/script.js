@@ -147,7 +147,6 @@ document.addEventListener('DOMContentLoaded', () => {
       countdownMessage.textContent = 'Ngày trọng đại đã diễn ra rồi. Cùng lưu lại những kỷ niệm nhé!';
       setCountdownDisplay('00', '00', '00', '00');
     } else {
-      countdownMessage.textContent = 'Chúng ta đang đếm ngược đến ngày trọng đại!';
       startCountdown(targetDate);
     }
   }
