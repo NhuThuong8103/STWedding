@@ -41,6 +41,56 @@
         border-radius: 9999px;
         background: #fff;
       }
+
+      .timeline-entry {
+        position: relative;
+      }
+
+      .timeline-entry::before {
+        content: '';
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 2px;
+        top: -1.5rem;
+        bottom: -1.5rem;
+        background: linear-gradient(180deg, rgba(231, 131, 119, 0.3), rgba(231, 131, 119, 0.75));
+        z-index: 1;
+      }
+
+      .timeline-entry:first-child::before {
+        top: 50%;
+      }
+
+      .timeline-entry:last-child::before {
+        bottom: 50%;
+      }
+
+      @media (min-width: 768px) {
+        .timeline-media {
+          position: relative;
+        }
+
+        .timeline-media::before {
+          content: '';
+          position: absolute;
+          top: 50%;
+          width: 3rem;
+          height: 2px;
+          transform: translateY(-50%);
+          background: linear-gradient(90deg, rgba(231, 131, 119, 0.1), rgba(231, 131, 119, 0.75));
+          border-radius: 9999px;
+        }
+
+        .timeline-media-right::before {
+          left: -3rem;
+        }
+
+        .timeline-media-left::before {
+          right: -3rem;
+          background: linear-gradient(90deg, rgba(231, 131, 119, 0.75), rgba(231, 131, 119, 0.1));
+        }
+      }
     </style>
   </head>
   <body class="bg-white text-slate-800 antialiased">
@@ -140,7 +190,7 @@
             <span class="absolute left-1/2 top-0 h-full w-[3px] -translate-x-1/2 bg-gradient-to-b from-brand/10 via-brand/50 to-brand/10"></span>
 
             <div class="space-y-12">
-              <article class="relative flex flex-col gap-6 md:flex-row md:items-center">
+              <article class="timeline-entry relative flex flex-col gap-6 md:flex-row md:items-center">
                 <div class="timeline-point"></div>
                 <div class="w-full md:w-1/2 md:pr-12">
                   <div class="rounded-2xl bg-white/80 p-6 shadow-lg backdrop-blur">
@@ -149,12 +199,12 @@
                     <p class="mt-3 text-base text-slate-600">Chúng tôi tình cờ gặp nhau thông qua người bạn chung là Thuộc - người bạn đại học của cả hai. Lúc mới đầu cả 2 chỉ trò chuyện như những người bạn bình thường, nhưng từ những cuộc trò chuyện đầu tiên, chúng tôi đều cảm thấy có điều gì đó đặc biệt.</p>
                   </div>
                 </div>
-                <div class="w-full md:w-1/2 md:pl-12 md:text-right">
+                <div class="timeline-media timeline-media-right w-full md:w-1/2 md:pl-12 md:text-right">
                   <img src="./image/groom.jpg" alt="Năm 2018" class="mx-auto rounded-2xl shadow-lg md:mx-0 md:ml-auto" />
                 </div>
               </article>
 
-              <article class="relative flex flex-col gap-6 md:flex-row md:items-center md:flex-row-reverse">
+              <article class="timeline-entry relative flex flex-col gap-6 md:flex-row md:items-center md:flex-row-reverse">
                 <div class="timeline-point"></div>
                 <div class="w-full md:w-1/2 md:pl-12 md:text-left">
                   <div class="rounded-2xl bg-white/80 p-6 shadow-lg backdrop-blur">
@@ -163,12 +213,12 @@
                     <p class="mt-3 text-base text-slate-600">Duyên số may mắn khi chúng tôi vô tình đăng kí học cùng chỉ 1 môn học. Từ đó, chúng tôi thường xuyên cùng nhau thảo luận, vào thư viện và làm bài tập nhóm. Những buổi học trở nên thú vị hơn bao giờ hết.</p>
                   </div>
                 </div>
-                <div class="w-full md:w-1/2 md:pr-12 md:text-left">
+                <div class="timeline-media timeline-media-left w-full md:w-1/2 md:pr-12 md:text-left">
                   <img src="./image/bride.jpg" alt="Năm 2018" class="mx-auto rounded-2xl shadow-lg md:mx-0 md:mr-auto" />
                 </div>
               </article>
 
-              <article class="relative flex flex-col gap-6 md:flex-row md:items-center">
+              <article class="timeline-entry relative flex flex-col gap-6 md:flex-row md:items-center">
                 <div class="timeline-point"></div>
                 <div class="w-full md:w-1/2 md:pr-12">
                   <div class="rounded-2xl bg-white/80 p-6 shadow-lg backdrop-blur">
@@ -177,12 +227,12 @@
                     <p class="mt-3 text-base text-slate-600">Lần đầu tiên anh nói lời yêu em, em đã nghe thấy trái tim mình đập mạnh như một bản giao hưởng đầy cảm xúc.</p>
                   </div>
                 </div>
-                <div class="w-full md:w-1/2 md:pl-12 md:text-right">
+                <div class="timeline-media timeline-media-right w-full md:w-1/2 md:pl-12 md:text-right">
                   <img src="./image/bg-main.jpg" alt="Năm 2020" class="mx-auto rounded-2xl shadow-lg md:mx-0 md:ml-auto" />
                 </div>
               </article>
 
-              <article class="relative flex flex-col gap-6 md:flex-row md:items-center md:flex-row-reverse">
+              <article class="timeline-entry relative flex flex-col gap-6 md:flex-row md:items-center md:flex-row-reverse">
                 <div class="timeline-point"></div>
                 <div class="w-full md:w-1/2 md:pl-12">
                   <div class="rounded-2xl bg-white/80 p-6 shadow-lg backdrop-blur">
@@ -191,12 +241,12 @@
                     <p class="mt-3 text-base text-slate-600">Buổi gặp mặt chính thức đầu tiên của 2 gia đình diễn ra ấm cúng và đầy ý nghĩa tại nhà gái, ghi lại những khoảnh khắc đáng nhớ đầu tiên của chúng tôi khi bắt đầu hành trình xây dựng mái ấm tương lai cùng nhau trong tình yêu chân thành và sự ủng hộ của cả hai gia đình.</p>
                   </div>
                 </div>
-                <div class="w-full md:w-1/2 md:pr-12">
+                <div class="timeline-media timeline-media-left w-full md:w-1/2 md:pr-12">
                   <img src="./image/groom.jpg" alt="Năm 2021" class="mx-auto rounded-2xl shadow-lg md:mx-0 md:mr-auto" />
                 </div>
               </article>
 
-              <article class="relative flex flex-col gap-6 md:flex-row md:items-center">
+              <article class="timeline-entry relative flex flex-col gap-6 md:flex-row md:items-center">
                 <div class="timeline-point"></div>
                 <div class="w-full md:w-1/2 md:pr-12">
                   <div class="rounded-2xl bg-white/80 p-6 shadow-lg backdrop-blur">
@@ -205,12 +255,12 @@
                     <p class="mt-3 text-base text-slate-600">Cùng nhau chuyển đến căn nhà nhỏ đầu tiên, chúng tôi học cách vun vén tổ ấm bằng tất cả yêu thương.</p>
                   </div>
                 </div>
-                <div class="w-full md:w-1/2 md:pl-12 md:text-right">
+                <div class="timeline-media timeline-media-right w-full md:w-1/2 md:pl-12 md:text-right">
                   <img src="./image/bride.jpg" alt="Năm 2022" class="mx-auto rounded-2xl shadow-lg md:mx-0 md:ml-auto" />
                 </div>
               </article>
 
-              <article class="relative flex flex-col gap-6 md:flex-row md:items-center md:flex-row-reverse">
+              <article class="timeline-entry relative flex flex-col gap-6 md:flex-row md:items-center md:flex-row-reverse">
                 <div class="timeline-point"></div>
                 <div class="w-full md:w-1/2 md:pl-12">
                   <div class="rounded-2xl bg-white/80 p-6 shadow-lg backdrop-blur">
@@ -219,12 +269,12 @@
                     <p class="mt-3 text-base text-slate-600">Chúng tôi cùng khám phá những miền đất mới, ghi lại biết bao kỷ niệm lãng mạn và đầy tiếng cười.</p>
                   </div>
                 </div>
-                <div class="w-full md:w-1/2 md:pr-12">
+                <div class="timeline-media timeline-media-left w-full md:w-1/2 md:pr-12">
                   <img src="./image/bg-main.jpg" alt="Năm 2023" class="mx-auto rounded-2xl shadow-lg md:mx-0 md:mr-auto" />
                 </div>
               </article>
 
-              <article class="relative flex flex-col gap-6 md:flex-row md:items-center">
+              <article class="timeline-entry relative flex flex-col gap-6 md:flex-row md:items-center">
                 <div class="timeline-point"></div>
                 <div class="w-full md:w-1/2 md:pr-12">
                   <div class="rounded-2xl bg-white/80 p-6 shadow-lg backdrop-blur">
@@ -233,12 +283,12 @@
                     <p class="mt-3 text-base text-slate-600">Trong không khí se lạnh của Đà Lạt, vào ngày sinh nhật của em, anh đã nói lời hứa trọn đời và em đã đồng ý, chiếc nhẫn cầu hôn đánh dấu một khởi đầu mới cho chúng ta - một hành trình yêu thương vô tận.</p>
                   </div>
                 </div>
-                <div class="w-full md:w-1/2 md:pl-12 md:text-right">
+                <div class="timeline-media timeline-media-right w-full md:w-1/2 md:pl-12 md:text-right">
                   <img src="./image/groom.jpg" alt="Năm 2024" class="mx-auto rounded-2xl shadow-lg md:mx-0 md:ml-auto" />
                 </div>
               </article>
 
-              <article class="relative flex flex-col gap-6 md:flex-row md:items-center md:flex-row-reverse">
+              <article class="timeline-entry relative flex flex-col gap-6 md:flex-row md:items-center md:flex-row-reverse">
                 <div class="timeline-point"></div>
                 <div class="w-full md:w-1/2 md:pl-12">
                   <div class="rounded-2xl bg-white/80 p-6 shadow-lg backdrop-blur">
@@ -247,7 +297,7 @@
                     <p class="mt-3 text-base text-slate-600">Gia đình hai bên cùng chung tay chuẩn bị lễ cưới. Từng chi tiết nhỏ đều được trau chuốt bằng tất cả yêu thương để tạo nên một ngày đặc biệt đầy ý nghĩa.</p>
                   </div>
                 </div>
-                <div class="w-full md:w-1/2 md:pr-12">
+                <div class="timeline-media timeline-media-left w-full md:w-1/2 md:pr-12">
                   <img src="./image/bride.jpg" alt="Năm 2025" class="mx-auto rounded-2xl shadow-lg md:mx-0 md:mr-auto" />
                 </div>
               </article>
