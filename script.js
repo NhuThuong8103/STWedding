@@ -189,3 +189,43 @@ document.addEventListener('DOMContentLoaded', () => {
     rsvpForm.reset();
   });
 });
+
+// --- Lightbox Logic ---
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+const lightboxClose = document.getElementById('lightbox-close');
+const galleryItems = document.querySelectorAll('[data-lightbox-src]');
+
+if (lightbox && lightboxImg && lightboxClose) {
+  galleryItems.forEach(item => {
+    item.addEventListener('click', () => {
+      const src = item.dataset.lightboxSrc;
+      lightboxImg.src = src;
+      lightbox.classList.remove('hidden');
+      document.body.style.overflow = 'hidden'; // Prevent scrolling
+    });
+  });
+
+  const closeLightbox = () => {
+    lightbox.classList.add('hidden');
+    lightboxImg.src = '';
+    document.body.style.overflow = '';
+  };
+
+  lightboxClose.addEventListener('click', closeLightbox);
+
+  // Close on background click
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) {
+      closeLightbox();
+    }
+  });
+
+  // Close on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !lightbox.classList.contains('hidden')) {
+      closeLightbox();
+    }
+  });
+}
+
