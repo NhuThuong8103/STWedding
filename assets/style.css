@@ -1,0 +1,78 @@
+body {
+  font-family: 'Playpen Sans', cursive;
+}
+.font-wedding {
+  font-family: 'Alex Brush', cursive;
+}
+
+.timeline-point {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, rgba(244, 114, 182, 0.85), rgba(248, 113, 113, 0.95));
+  border: 3px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 0 10px 25px rgba(244, 114, 182, 0.35);
+  z-index: 10;
+}
+
+.timeline-point::after {
+  content: '';
+  position: absolute;
+  inset: 0.35rem;
+  border-radius: 9999px;
+  background: #fff;
+}
+
+.timeline-entry {
+  position: relative;
+}
+
+.timeline-entry::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  top: -1.5rem;
+  bottom: -1.5rem;
+  background: linear-gradient(180deg, rgba(231, 131, 119, 0.3), rgba(231, 131, 119, 0.75));
+  z-index: 1;
+}
+
+.timeline-entry:first-child::before {
+  top: 50%;
+}
+
+.timeline-entry:last-child::before {
+  bottom: 50%;
+}
+
+@media (min-width: 768px) {
+  .timeline-media {
+    position: relative;
+  }
+
+  .timeline-media::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 3rem;
+    height: 2px;
+    transform: translateY(-50%);
+    background: linear-gradient(90deg, rgba(231, 131, 119, 0.1), rgba(231, 131, 119, 0.75));
+    border-radius: 9999px;
+  }
+
+  .timeline-media-right::before {
+    left: -3rem;
+  }
+
+  .timeline-media-left::before {
+    right: -3rem;
+    background: linear-gradient(90deg, rgba(231, 131, 119, 0.75), rgba(231, 131, 119, 0.1));
+  }
+}
