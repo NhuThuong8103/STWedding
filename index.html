@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="vi" class="scroll-smooth">
+<html lang="vi" class="scroll-smooth overflow-hidden">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="./assets/style.css" />
     <link rel="stylesheet" href="./assets/couple.css" />
   </head>
-  <body class="bg-white text-slate-800 antialiased overflow-x-hidden">
+  <body class="bg-white text-slate-800 antialiased">
     <!-- Preloader -->
     <div id="preloader"
       class="fixed inset-0 z-[9999] flex items-center justify-center bg-white transition-opacity duration-500">
@@ -787,6 +787,13 @@
       </div>
     </div>
 
+    <!-- Music Control -->
+    <audio id="bg-music" src="https://assets.cinelove.me/mp3/0e470330-e4d4-4fdc-8d99-830aab66916c.mp3" loop></audio>
+    <button id="music-control" class="music-control bg-pink-200/80 backdrop-blur shadow-lg border border-pink-200">
+      <i class="fa-solid fa-compact-disc music-icon-playing text-brand text-2xl"></i>
+      <i class="fa-solid fa-volume-xmark music-icon-muted text-brand text-2xl"></i>
+    </button>
+
     <script src="./assets/js/music.js" defer></script>
     <script src="./assets/js/animations.js" defer></script>
     <script src="./assets/js/countdown.js" defer></script>
@@ -797,14 +804,5 @@
     <script src="./assets/js/preloader.js" defer></script>
     <script src="./assets/js/effects.js" defer></script>
     <script src="./assets/js/lightbox.js" defer></script>
-
-    <!-- Music Control -->
-    <audio id="bg-music" src="https://assets.cinelove.me/mp3/0e470330-e4d4-4fdc-8d99-830aab66916c.mp3" loop></audio>
-    <button id="music-control" class="music-control bg-pink-200/80 backdrop-blur shadow-lg border border-pink-200">
-      <i class="fa-solid fa-compact-disc music-icon-playing text-brand text-2xl"></i>
-      <i class="fa-solid fa-volume-xmark music-icon-muted text-brand text-2xl"></i>
-    </button>
-
-
   </body>
 </html>
