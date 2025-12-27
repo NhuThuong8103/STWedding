@@ -37,9 +37,14 @@ window.addEventListener('load', () => {
         }, 800);
       }
 
-      // Remove from DOM after transition
+      // Remove from DOM AND unlock scroll after transition
       preloader.addEventListener('transitionend', () => {
         preloader.style.display = 'none';
+
+        // Ensure body and html classes are restored
+        document.body.classList.remove('overflow-hidden');
+        document.documentElement.classList.remove('overflow-hidden');
+        document.body.classList.add('overflow-x-hidden');
       }, { once: true });
     }, 1000);
   }
