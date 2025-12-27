@@ -11,7 +11,9 @@
   font-size: 0.85rem;
   color: #4b5563;
   pointer-events: none;
-  white-space: nowrap;
+  white-space: normal;
+  max-width: 80vw;
+  word-wrap: break-word;
   animation: float 3s ease-in-out infinite;
 }
 
