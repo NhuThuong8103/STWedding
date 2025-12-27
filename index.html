@@ -740,9 +740,16 @@
       </div>
     </div>
 
-    <script src="./assets/music.js" defer></script>
-    <script src="./assets/script.js" defer></script>
-    <script src="./assets/lightbox.js" defer></script>
+    <script src="./assets/js/music.js" defer></script>
+    <script src="./assets/js/animations.js" defer></script>
+    <script src="./assets/js/countdown.js" defer></script>
+    <script src="./assets/js/navigation.js" defer></script>
+    <script src="./assets/js/carousel.js" defer></script>
+    <script src="./assets/js/notifications.js" defer></script>
+    <script src="./assets/js/rsvp.js" defer></script>
+    <script src="./assets/js/preloader.js" defer></script>
+    <script src="./assets/js/effects.js" defer></script>
+    <script src="./assets/js/lightbox.js" defer></script>
 
     <!-- Music Control -->
     <audio id="bg-music" src="https://assets.cinelove.me/mp3/0e470330-e4d4-4fdc-8d99-830aab66916c.mp3" loop></audio>
@@ -751,62 +758,6 @@
       <i class="fa-solid fa-volume-xmark music-icon-muted text-brand text-2xl"></i>
     </button>
 
-    <script>
-      const canvas = document.getElementById('effectCanvas')
-      const section = canvas.parentElement
-      const ctx = canvas.getContext('2d')
 
-      function resize() {
-        canvas.width = section.offsetWidth
-        canvas.height = section.offsetHeight
-      }
-
-      window.addEventListener('resize', resize)
-      resize()
-    </script>
-
-    <script>
-      const hearts = []
-
-      function createHeart() {
-        hearts.push({
-          x: Math.random() * canvas.width,
-          y: canvas.height + 20,
-          size: Math.random() * 20 + 75,
-          speed: Math.random() * 1.5 + 0.4,
-          alpha: 1.2,
-        })
-      }
-
-      function drawHeart(x, y, size, alpha) {
-        ctx.save()
-        ctx.translate(x, y)
-        ctx.scale(size / 20, size / 20)
-        ctx.beginPath()
-        ctx.moveTo(0, 0)
-        ctx.bezierCurveTo(-10, -10, -20, 10, 0, 20)
-        ctx.bezierCurveTo(20, 10, 10, -10, 0, 0)
-        ctx.fillStyle = `rgba(231, 131, 119, ${alpha})`;
-        ctx.fill()
-        ctx.restore()
-      }
-
-      function animate() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height)
-
-        hearts.forEach((h, i) => {
-          h.y -= h.speed
-          h.alpha -= 0.003
-          drawHeart(h.x, h.y, h.size, h.alpha)
-
-          if (h.alpha <= 0) hearts.splice(i, 1)
-        })
-
-        requestAnimationFrame(animate)
-      }
-
-      setInterval(createHeart, 300)
-      animate()
-    </script>
   </body>
 </html>
