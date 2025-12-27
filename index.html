@@ -19,18 +19,90 @@
       .font-wedding {
         font-family: 'Alex Brush', cursive;
       }
+
+      .timeline-point {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 1.5rem;
+        height: 1.5rem;
+        border-radius: 9999px;
+        background: linear-gradient(135deg, rgba(244, 114, 182, 0.85), rgba(248, 113, 113, 0.95));
+        border: 3px solid rgba(255, 255, 255, 0.85);
+        box-shadow: 0 10px 25px rgba(244, 114, 182, 0.35);
+        z-index: 10;
+      }
+
+      .timeline-point::after {
+        content: '';
+        position: absolute;
+        inset: 0.35rem;
+        border-radius: 9999px;
+        background: #fff;
+      }
+
+      .timeline-entry {
+        position: relative;
+      }
+
+      .timeline-entry::before {
+        content: '';
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 2px;
+        top: -1.5rem;
+        bottom: -1.5rem;
+        background: linear-gradient(180deg, rgba(231, 131, 119, 0.3), rgba(231, 131, 119, 0.75));
+        z-index: 1;
+      }
+
+      .timeline-entry:first-child::before {
+        top: 50%;
+      }
+
+      .timeline-entry:last-child::before {
+        bottom: 50%;
+      }
+
+      @media (min-width: 768px) {
+        .timeline-media {
+          position: relative;
+        }
+
+        .timeline-media::before {
+          content: '';
+          position: absolute;
+          top: 50%;
+          width: 3rem;
+          height: 2px;
+          transform: translateY(-50%);
+          background: linear-gradient(90deg, rgba(231, 131, 119, 0.1), rgba(231, 131, 119, 0.75));
+          border-radius: 9999px;
+        }
+
+        .timeline-media-right::before {
+          left: -3rem;
+        }
+
+        .timeline-media-left::before {
+          right: -3rem;
+          background: linear-gradient(90deg, rgba(231, 131, 119, 0.75), rgba(231, 131, 119, 0.1));
+        }
+      }
     </style>
   </head>
   <body class="bg-white text-slate-800 antialiased">
     <nav class="font-wedding bg-neutral-primary absolute w-full z-20 top-0 start-0 bg-[#faebd75c]">
       <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-          <h1 class="logo text-6xl">S <span><i class="fa fa-heart"></i></span> T</h1>
+          <h1 class="logo text-6xl">S&T</h1>
           <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-body rounded-base md:hidden hover:bg-neutral-secondary-soft hover:text-heading focus:outline-none focus:ring-2 focus:ring-neutral-tertiary" aria-controls="navbar-default" aria-expanded="false">
               <span class="sr-only">Open main menu</span>
               <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M5 7h14M5 12h14M5 17h14"/></svg>
           </button>
           <div class="hidden w-full md:block md:w-auto" id="navbar-default">
-          <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-default rounded-base bg-neutral-secondary-soft md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-neutral-primary">
+          <ul class="font-medium text-2xl flex flex-col p-4 md:p-0 mt-4 border border-default rounded-base bg-neutral-secondary-soft md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-neutral-primary">
               <li>
               <a href="#" class="block py-2 px-3 text-heading bg-brand rounded md:bg-transparent md:text-fg-brand md:p-0" aria-current="page">Couple</a>
               </li>
@@ -50,17 +122,366 @@
           </div>
       </div>
     </nav>
-    <header class="relative isolate flex min-h-[90vh] bg-[url('./image/bg-main.jpg')] bg-cover bg-fixed bg-no-repeat flex-col bg-hero-pattern text-black p-7" id="home">
+    <header class="relative isolate flex min-h-screen bg-[url('./image/bg-main.jpg')] bg-cover bg-fixed bg-no-repeat flex-col bg-hero-pattern text-black p-7 align-center justify-center" id="home">
       <canvas id="effectCanvas" class="absolute inset-0 pointer-events-none"></canvas>
       <div class="mx-auto flex w-full max-w-6xl flex-col items-center gap-6 px-6 py-5">
+        <div class="text-center">
+          <h1 class="text-7xl font-wedding text-white drop-shadow-lg">Thương & Sang</h1>
+          <p class="text-xl text-white mt-2">Chúng tôi sắp cưới! 30 tháng 4 năm 2026</p>
+        </div>
       </div>
     </header>
 
-    <main class="font-wedding bg-white min-h-[90vh]">
+    <main class="bg-white min-h-[90vh]">
       <section class="py-16 px-6">
+        <div class="font-wedding max-w-4xl mx-auto text-center">
+          <h1 class="text-5xl font-bold text-heading mb-4">Cô Dâu & Chú Rể</h1>
+        </div>
+        <div class="max-w-2xl mx-auto text-center">
+          <p class="text-lg text-slate-600">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            Eligendi, cupiditate blanditiis earum ipsum facere dolores amet aliquam repudiandae vero doloribus 
+            hic ex consequatur nobis laborum quibusdam nihil eaque error ab reiciendis libero corrupti voluptates 
+            corporis ad iusto eum optio expedita laudantium doloremque sequi fugit. Dolorem hic alias enim fugit rerum.
+          </p>
+        </div>
+      </section>
+      <section class="py-6 px-6">
         <div class="max-w-4xl mx-auto text-center">
-          <h1 class="text-4xl font-bold text-heading mb-4">We're getting married, Thương and Sang! Lễ đính hôn Lễ Thành hôn</h1>
-          <p class="text-lg text-slate-600">April 30, 2026</p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="p-4">
+              <img src="./image/groom.jpg" alt="Chú Rể" class="w-full h-auto rounded-lg shadow-lg">
+              <h1 class="mt-2 text-4xl font-semibold font-wedding">Nguyễn Văn Sang</h1>
+              <div class="mt-1 text-sm text-slate-600">
+                Là chàng trai sinh ra tại vùng đất miền Trung - Quảng Nam.
+                Văn Sang đã lớn lên và học tập chăm chỉ đổ ngành IT tại Trường ĐH Công Thương,
+                nơi bắt đầu ước mơ và cũng chính nơi đó Văn Sang đã tìm được cô ấy.
+              </div>
+              <div class="mt-1 text-sm text-slate-500">
+                <a href="https://www.facebook.com/sang98.nguyen" target="_blank" 
+                  class="inline-block color-gray rounded-full text-xl border w-8 h-8 hover:bg-blue-400">
+                  <i class="fa-brands fa-facebook-f"></i>
+                </a>
+              </div>
+            </div>
+            <div class="p-4">
+              <img src="./image/bride.jpg" alt="Cô Dâu" class="w-full h-auto rounded-lg shadow-lg">
+              <h1 class="mt-2 text-4xl font-semibold font-wedding">Nguyễn Thị Như Thương</h1>
+              <div class="mt-1 text-sm text-slate-600">
+                Một cô gái nhỏ nhắn đến từ Tây Ninh, vốn yêu thích lịch sử nhưng lại học ngành IT tại Trường ĐH Công Thương.
+                Để từ đó, cô đã tìm thấy một người bạn, người đồng đội, người cùng cô viết code và viết tiếp câu chuyện tương lai.
+              </div>
+              <div class="mt-1 text-sm text-slate-500">
+                <a href="https://www.facebook.com/thuong.nhu.353" target="_blank" 
+                  class="inline-block color-gray rounded-full text-xl border w-8 h-8 hover:bg-blue-400">
+                  <i class="fa-brands fa-facebook-f"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="relative py-16 px-6" id="timeline">
+        <div class="mx-auto max-w-5xl">
+          <h1 class="font-wedding text-center text-5xl font-semibold text-heading">Câu chuyện của chúng tôi bắt đầu từ đây...</h1>
+          <p class="mt-2 text-center text-lg text-slate-600">Từ những ngày đầu e ấp đến giây phút quyết định gắn bó trọn đời.</p>
+
+          <div class="relative mt-12">
+            <span class="absolute left-1/2 top-0 h-full w-[3px] -translate-x-1/2 bg-gradient-to-b from-brand/10 via-brand/50 to-brand/10"></span>
+
+            <div class="space-y-12">
+              <article class="timeline-entry relative flex flex-col gap-6 md:flex-row md:items-center">
+                <div class="timeline-point"></div>
+                <div class="w-full md:w-1/2 md:pr-12">
+                  <div class="rounded-2xl bg-white/80 p-6 shadow-lg backdrop-blur">
+                    <span class="text-sm font-medium uppercase tracking-[0.35em] text-brand">2017</span>
+                    <h3 class="font-wedding mt-2 text-3xl font-semibold text-heading">Lần đầu gặp gỡ</h3>
+                    <p class="mt-3 text-base text-slate-600">Chúng tôi tình cờ gặp nhau thông qua người bạn chung là Thuộc - người bạn đại học của cả hai. Lúc mới đầu cả 2 chỉ trò chuyện như những người bạn bình thường, nhưng từ những cuộc trò chuyện đầu tiên, chúng tôi đều cảm thấy có điều gì đó đặc biệt.</p>
+                  </div>
+                </div>
+                <div class="timeline-media timeline-media-right w-full md:w-1/2 md:pl-12 md:text-right">
+                  <img src="./image/groom.jpg" alt="Năm 2018" class="mx-auto rounded-2xl shadow-lg md:mx-0 md:ml-auto" />
+                </div>
+              </article>
+
+              <article class="timeline-entry relative flex flex-col gap-6 md:flex-row md:items-center md:flex-row-reverse">
+                <div class="timeline-point"></div>
+                <div class="w-full md:w-1/2 md:pl-12 md:text-left">
+                  <div class="rounded-2xl bg-white/80 p-6 shadow-lg backdrop-blur">
+                    <span class="text-sm font-medium uppercase tracking-[0.35em] text-brand">Tháng 1/2018</span>
+                    <h3 class="font-wedding mt-2 text-3xl font-semibold text-heading">Những buổi học cùng nhau</h3>
+                    <p class="mt-3 text-base text-slate-600">Duyên số may mắn khi chúng tôi vô tình đăng kí học cùng chỉ 1 môn học. Từ đó, chúng tôi thường xuyên cùng nhau thảo luận, vào thư viện và làm bài tập nhóm. Những buổi học trở nên thú vị hơn bao giờ hết.</p>
+                  </div>
+                </div>
+                <div class="timeline-media timeline-media-left w-full md:w-1/2 md:pr-12 md:text-left">
+                  <img src="./image/bride.jpg" alt="Năm 2018" class="mx-auto rounded-2xl shadow-lg md:mx-0 md:mr-auto" />
+                </div>
+              </article>
+
+              <article class="timeline-entry relative flex flex-col gap-6 md:flex-row md:items-center">
+                <div class="timeline-point"></div>
+                <div class="w-full md:w-1/2 md:pr-12">
+                  <div class="rounded-2xl bg-white/80 p-6 shadow-lg backdrop-blur">
+                    <span class="text-sm font-medium uppercase tracking-[0.35em] text-brand">Tháng 6/2018</span>
+                    <h3 class="font-wedding mt-2 text-3xl font-semibold text-heading">Lời tỏ tình đầu tiên</h3>
+                    <p class="mt-3 text-base text-slate-600">Lần đầu tiên anh nói lời yêu em, em đã nghe thấy trái tim mình đập mạnh như một bản giao hưởng đầy cảm xúc.</p>
+                  </div>
+                </div>
+                <div class="timeline-media timeline-media-right w-full md:w-1/2 md:pl-12 md:text-right">
+                  <img src="./image/bg-main.jpg" alt="Năm 2020" class="mx-auto rounded-2xl shadow-lg md:mx-0 md:ml-auto" />
+                </div>
+              </article>
+
+              <article class="timeline-entry relative flex flex-col gap-6 md:flex-row md:items-center md:flex-row-reverse">
+                <div class="timeline-point"></div>
+                <div class="w-full md:w-1/2 md:pl-12">
+                  <div class="rounded-2xl bg-white/80 p-6 shadow-lg backdrop-blur">
+                    <span class="text-sm font-medium uppercase tracking-[0.35em] text-brand">Tháng 11/2025</span>
+                    <h3 class="font-wedding mt-2 text-3xl font-semibold text-heading">Lễ Dạm Ngõ</h3>
+                    <p class="mt-3 text-base text-slate-600">Buổi gặp mặt chính thức đầu tiên của 2 gia đình diễn ra ấm cúng và đầy ý nghĩa tại nhà gái, ghi lại những khoảnh khắc đáng nhớ đầu tiên của chúng tôi khi bắt đầu hành trình xây dựng mái ấm tương lai cùng nhau trong tình yêu chân thành và sự ủng hộ của cả hai gia đình.</p>
+                  </div>
+                </div>
+                <div class="timeline-media timeline-media-left w-full md:w-1/2 md:pr-12">
+                  <img src="./image/groom.jpg" alt="Năm 2021" class="mx-auto rounded-2xl shadow-lg md:mx-0 md:mr-auto" />
+                </div>
+              </article>
+
+              <article class="timeline-entry relative flex flex-col gap-6 md:flex-row md:items-center">
+                <div class="timeline-point"></div>
+                <div class="w-full md:w-1/2 md:pr-12">
+                  <div class="rounded-2xl bg-white/80 p-6 shadow-lg backdrop-blur">
+                    <span class="text-sm font-medium uppercase tracking-[0.35em] text-brand">Tháng 1/2026</span>
+                    <h3 class="font-wedding mt-2 text-3xl font-semibold text-heading">Đặt những viên gạch đầu tiên</h3>
+                    <p class="mt-3 text-base text-slate-600">Cùng nhau chuyển đến căn nhà nhỏ đầu tiên, chúng tôi học cách vun vén tổ ấm bằng tất cả yêu thương.</p>
+                  </div>
+                </div>
+                <div class="timeline-media timeline-media-right w-full md:w-1/2 md:pl-12 md:text-right">
+                  <img src="./image/bride.jpg" alt="Năm 2022" class="mx-auto rounded-2xl shadow-lg md:mx-0 md:ml-auto" />
+                </div>
+              </article>
+
+              <article class="timeline-entry relative flex flex-col gap-6 md:flex-row md:items-center md:flex-row-reverse">
+                <div class="timeline-point"></div>
+                <div class="w-full md:w-1/2 md:pl-12">
+                  <div class="rounded-2xl bg-white/80 p-6 shadow-lg backdrop-blur">
+                    <span class="text-sm font-medium uppercase tracking-[0.35em] text-brand">2023</span>
+                    <h3 class="font-wedding mt-2 text-3xl font-semibold text-heading">Những chuyến đi dài</h3>
+                    <p class="mt-3 text-base text-slate-600">Chúng tôi cùng khám phá những miền đất mới, ghi lại biết bao kỷ niệm lãng mạn và đầy tiếng cười.</p>
+                  </div>
+                </div>
+                <div class="timeline-media timeline-media-left w-full md:w-1/2 md:pr-12">
+                  <img src="./image/bg-main.jpg" alt="Năm 2023" class="mx-auto rounded-2xl shadow-lg md:mx-0 md:mr-auto" />
+                </div>
+              </article>
+
+              <article class="timeline-entry relative flex flex-col gap-6 md:flex-row md:items-center">
+                <div class="timeline-point"></div>
+                <div class="w-full md:w-1/2 md:pr-12">
+                  <div class="rounded-2xl bg-white/80 p-6 shadow-lg backdrop-blur">
+                    <span class="text-sm font-medium uppercase tracking-[0.35em] text-brand">6/2025</span>
+                    <h3 class="font-wedding mt-2 text-3xl font-semibold text-heading">Lời cầu hôn</h3>
+                    <p class="mt-3 text-base text-slate-600">Trong không khí se lạnh của Đà Lạt, vào ngày sinh nhật của em, anh đã nói lời hứa trọn đời và em đã đồng ý, chiếc nhẫn cầu hôn đánh dấu một khởi đầu mới cho chúng ta - một hành trình yêu thương vô tận.</p>
+                  </div>
+                </div>
+                <div class="timeline-media timeline-media-right w-full md:w-1/2 md:pl-12 md:text-right">
+                  <img src="./image/groom.jpg" alt="Năm 2024" class="mx-auto rounded-2xl shadow-lg md:mx-0 md:ml-auto" />
+                </div>
+              </article>
+
+              <article class="timeline-entry relative flex flex-col gap-6 md:flex-row md:items-center md:flex-row-reverse">
+                <div class="timeline-point"></div>
+                <div class="w-full md:w-1/2 md:pl-12">
+                  <div class="rounded-2xl bg-white/80 p-6 shadow-lg backdrop-blur">
+                    <span class="text-sm font-medium uppercase tracking-[0.35em] text-brand">2026</span>
+                    <h3 class="font-wedding mt-2 text-3xl font-semibold text-heading">Chuẩn bị cho ngày cưới</h3>
+                    <p class="mt-3 text-base text-slate-600">Gia đình hai bên cùng chung tay chuẩn bị lễ cưới. Từng chi tiết nhỏ đều được trau chuốt bằng tất cả yêu thương để tạo nên một ngày đặc biệt đầy ý nghĩa.</p>
+                  </div>
+                </div>
+                <div class="timeline-media timeline-media-left w-full md:w-1/2 md:pr-12">
+                  <img src="./image/bride.jpg" alt="Năm 2025" class="mx-auto rounded-2xl shadow-lg md:mx-0 md:mr-auto" />
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="py-16 bg-slate-50 bg-gradient-to-r from-pink-50 to-rose-50">
+        <div class="mx-auto max-w-4xl text-center">
+          <h2 class="font-wedding text-5xl font-bold text-heading">Ngày trọng đại</h2>
+          <p class="mt-4 text-lg text-slate-600">Sau 7 năm, chúng tôi quyết định viết tiếp hành trình với một đám cưới ấm áp bên gia đình </br> và những người thân yêu.</p>
+          <div class="flex justify-between">
+            <div class="text-center border border-default border-[#e78377] rounded-2xl p-5">
+              <p class="mt-2 text-sm text-slate-500">Lễ Vu Quy</p>
+              <p class="mt-1 text-sm text-slate-500">10:00 AM, 30 tháng 4 năm 2026</p>
+              <p class="mt-1 text-sm text-slate-500">Địa điểm: Nhà gái</p>
+            </div>
+            <div class="text-center border border-default border-[#e78377] rounded-2xl p-5">
+              <p class="mt-2 text-sm text-slate-500">Lễ Thành Hôn</p>
+              <p class="mt-1 text-sm text-slate-500">2:00 PM, 30 tháng 4 năm 2026</p>
+              <p class="mt-1 text-sm text-slate-500">Địa điểm: Nhà trai</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="py-16 px-6" id="countdown">
+        <div class="mx-auto flex max-w-4xl flex-col items-center gap-8 text-center">
+          <div>
+            <h2 class="font-wedding text-5xl font-semibold text-heading">Cùng đếm ngược thời gian</h2>
+            <p class="mt-2 text-lg text-slate-600">Hãy chia sẻ ngày bạn mong chờ nhất, và chúng ta cùng đếm ngược nhé!</p>
+          </div>
+
+          <div class="rounded-xl bg-white/80 px-6 py-4 shadow-md backdrop-blur">
+            <p class="text-sm font-medium uppercase tracking-[0.35em] text-brand">Ngày trọng đại</p>
+            <p class="mt-1 text-2xl font-semibold text-heading" data-countdown-target>30 tháng 4 năm 2026 · 10:00</p>
+          </div>
+
+          <div class="grid w-full max-w-3xl grid-cols-2 gap-4 sm:grid-cols-4" data-countdown-display>
+            <div class="rounded-2xl bg-white/70 p-6 shadow-md backdrop-blur">
+              <div class="text-5xl font-bold text-brand" data-countdown-days>--</div>
+              <div class="mt-2 text-sm uppercase tracking-[0.3em] text-slate-500">Ngày</div>
+            </div>
+            <div class="rounded-2xl bg-white/70 p-6 shadow-md backdrop-blur">
+              <div class="text-5xl font-bold text-brand" data-countdown-hours>--</div>
+              <div class="mt-2 text-sm uppercase tracking-[0.3em] text-slate-500">Giờ</div>
+            </div>
+            <div class="rounded-2xl bg-white/70 p-6 shadow-md backdrop-blur">
+              <div class="text-5xl font-bold text-brand" data-countdown-minutes>--</div>
+              <div class="mt-2 text-sm uppercase tracking-[0.3em] text-slate-500">Phút</div>
+            </div>
+            <div class="rounded-2xl bg-white/70 p-6 shadow-md backdrop-blur">
+              <div class="text-5xl font-bold text-brand" data-countdown-seconds>--</div>
+              <div class="mt-2 text-sm uppercase tracking-[0.3em] text-slate-500">Giây</div>
+            </div>
+          </div>
+
+          <p class="text-sm text-slate-500" data-countdown-message>
+            Chúng ta đang đếm ngược đến ngày trọng đại!
+          </p>
+        </div>
+      </section>
+      <section class="bg-stone-50 py-20" id="gallery">
+        <div class="mx-auto flex w-full max-w-6xl flex-col gap-12 px-6">
+          <div class="space-y-5 text-center sm:text-left" data-animate="fade" data-animate-delay="0.15">
+            <p class="text-xs uppercase tracking-[0.5em] text-center text-brand-400">Khoảnh khắc</p>
+            <h2 class="font-wedding text-5xl font-semibold text-center">Những giây phút yêu thương</h2>
+            <p class="mx-auto max-w-3xl text-base text-slate-600 text-center">
+              Bộ sưu tập ảnh cưới sẽ được cập nhật liên tục. Chúng tôi rất háo hức chia sẻ cùng bạn những khoảnh
+              khắc tuyệt đẹp nhất trong hành trình chuẩn bị cho ngày cưới.
+            </p>
+          </div>
+          <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <figure
+              class="group relative overflow-hidden rounded-3xl shadow-lg shadow-brand-200/30"
+              data-animate="fade-right"
+              data-animate-delay="0.18"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1520854221058-7b4152baf3c0?auto=format&fit=crop&w=1200&q=80"
+                alt="Khoảnh khắc đám cưới"
+                class="opacity-0 h-full w-full object-cover transition duration-700 group-hover:scale-105"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+            </figure>
+            <figure
+              class="group relative overflow-hidden rounded-3xl shadow-lg shadow-brand-200/30"
+              data-animate="fade-left"
+              data-animate-delay="0.24"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=1200&q=80"
+                alt="Cặp đôi bên nhau"
+                class="opacity-0 h-full w-full object-cover transition duration-700 group-hover:scale-105"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+            </figure>
+            <figure
+              class="group relative overflow-hidden rounded-3xl shadow-lg shadow-brand-200/30"
+              data-animate="fade-right"
+              data-animate-delay="0.3"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1520854221057-9aa1de0d0bc3?auto=format&fit=crop&w=1200&q=80"
+                alt="Nhẫn cưới"
+                class="opacity-0 h-full w-full object-cover transition duration-700 group-hover:scale-105"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+            </figure>
+            <figure
+              class="group relative overflow-hidden rounded-3xl shadow-lg shadow-brand-200/30"
+              data-animate="fade-left"
+              data-animate-delay="0.36"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1519744792095-2f2205e87b6f?auto=format&fit=crop&w=1200&q=80"
+                alt="Không gian tiệc cưới"
+                class="opacity-0 h-full w-full object-cover transition duration-700 group-hover:scale-105"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+            </figure>
+          </div>
+        </div>
+      </section>
+      <section class="py-20" id="rsvp">
+        <div class="mx-auto flex w-full max-w-6xl flex-col gap-12 px-6">
+          <div class="space-y-5 text-center sm:text-left" data-animate="fade" data-animate-delay="0.15">
+            <h2 class="font-wedding text-5xl font-semibold text-center">Bạn sẽ đến chứ ^^?</h2>
+          </div>
+          <form
+            class="opacity-0 mx-auto w-full max-w-xl space-y-6 rounded-3xl border border-brand-100 bg-white/90 p-8 shadow-xl shadow-brand-200/50 backdrop-blur"
+            data-rsvp-form
+            data-animate="fade-right"
+            data-animate-delay="0.22"
+          >
+            <label class="block space-y-2">
+              <span class="text-xs font-semibold uppercase tracking-[0.4em] text-slate-500">Tên của bạn</span>
+              <input
+                class="w-full rounded-full border border-slate-200 bg-white/80 px-5 py-3 text-sm text-slate-700 outline-none transition focus:border-brand-400 focus:ring-4 focus:ring-brand-200"
+                type="text"
+                name="guestName"
+                placeholder="Nguyễn Văn A"
+                required
+              />
+            </label>
+            <fieldset class="space-y-3">
+              <div class="flex flex-wrap gap-3">
+                <label
+                  class="flex cursor-pointer items-center gap-3 rounded-full border border-brand-100 bg-brand-50 px-4 py-2 text-sm text-slate-700 transition hover:border-brand-200"
+                >
+                  <input type="radio" name="attending" value="yes" checked class="accent-brand-400" />
+                  <span>Chắc chắn rồi!</span>
+                </label>
+                <label
+                  class="flex cursor-pointer items-center gap-3 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm text-slate-700 transition hover:border-brand-200"
+                >
+                  <input type="radio" name="attending" value="no" class="accent-brand-400" />
+                  <span>Rất tiếc, tôi không thể tham dự được.</span>
+                </label>
+                <label
+                  class="flex cursor-pointer items-center gap-3 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm text-slate-700 transition hover:border-brand-200"
+                >
+                  <input type="radio" name="attending" value="maybe" class="accent-brand-400" />
+                  <span>Chưa chắc, mình sẽ xem tình hình.</span>
+                </label>
+              </div>
+            </fieldset>
+            <fieldset class="">
+              <label class="block space-y-2">
+                <span class="text-xs font-semibold uppercase tracking-[0.4em] text-slate-500">Lời chúc (tùy chọn)</span>
+                <textarea
+                  class="w-full rounded-2xl border border-slate-200 bg-white/80 px-5 py-3 text-sm text-slate-700 outline-none transition focus:border-brand-400 focus:ring-4 focus:ring-brand-200"
+                  name="message"
+                  placeholder="Viết lời chúc của bạn ở đây..."
+                  rows="3"
+                ></textarea>
+              </label>
+            </fieldset>
+            <button
+              class="w-full bg-[#e78377] rounded-full bg-brand-400 px-6 py-3 text-xs font-semibold uppercase tracking-[0.4em] text-white shadow shadow-brand transition hover:bg-brand-500"
+              type="submit"
+            >
+              Gửi lời chúc
+            </button>
+          </form>
         </div>
       </section>
     </main>
