@@ -18,6 +18,7 @@
     />
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="./assets/style.css" />
+    <link rel="stylesheet" href="./assets/couple.css" />
   </head>
   <body class="bg-white text-slate-800 antialiased overflow-x-hidden">
     <!-- Preloader -->
@@ -108,38 +109,74 @@
           </p>
           <div class="m-4">
             <div class="flex justify-center space-x-4">
-              <div class="bg-[url('./assets/image/swans-couple.png')] bg-contain bg-no-repeat w-14 h-14"></div>
+              <img src="./assets/image/swans-couple.svg" alt="Swans Couple" class="w-24 h-24">
             </div>
           </div>
         </div>
         <div class="max-w-4xl mx-auto text-center">
           <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div class="p-4">
-              <img src="./assets/image/groom.jpg" alt="Chú Rể" class="w-full h-auto rounded-lg shadow-lg">
+            <div class="p-4" data-animate="fade-left" data-animate-once="true">
+              <div class="relative inline-block w-full group">
+                <img src="./assets/image/groom.jpg" alt="Chú Rể" class="w-full h-auto rounded-lg shadow-lg">
+                <div
+                  class="speech-bubble -top-6 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <i class="fa-solid fa-quote-left quote-icon"></i>
+                  Đây là 'chú rể Văn Soang'
+                  <i class="fa-solid fa-quote-right quote-icon"></i>
+                </div>
+                <div class="social-overlay">
+                  <a href="https://www.facebook.com/sang98.nguyen" target="_blank" class="social-icon-btn" title="Facebook">
+                    <i class="fa-brands fa-facebook-f"></i>
+                  </a>
+                  <a href="https://www.tiktok.com/@nvsang2015" target="_blank" class="social-icon-btn" title="TikTok">
+                    <i class="fa-brands fa-tiktok"></i>
+                  </a>
+                </div>
+              </div>
               <h1 class="mt-4 text-4xl font-semibold font-wedding">Nguyễn Văn Sang</h1>
               <div class="mt-2 text-sm text-slate-600">
                 Là chàng trai sinh ra tại vùng đất miền Trung - Quảng Nam.
                 Văn Sang đã lớn lên và học tập chăm chỉ đổ ngành IT tại Trường ĐH Công Thương,
                 nơi bắt đầu ước mơ và cũng chính nơi đó Văn Sang đã tìm được cô ấy.
               </div>
-              <div class="mt-3 text-sm text-slate-500">
-                <a href="https://www.facebook.com/sang98.nguyen" target="_blank"
-                  class="inline-block color-gray rounded-full text-xl border w-8 h-8 hover:bg-blue-400">
+              <div class="mt-4 md:hidden flex justify-center gap-4">
+                <a href="https://www.facebook.com/sang98.nguyen" target="_blank" class="social-icon-btn" title="Facebook">
                   <i class="fa-brands fa-facebook-f"></i>
+                </a>
+                <a href="https://www.tiktok.com/@nvsang2015" target="_blank" class="social-icon-btn" title="TikTok">
+                  <i class="fa-brands fa-tiktok"></i>
                 </a>
               </div>
             </div>
-            <div class="p-4">
-              <img src="./assets/image/bride.jpg" alt="Cô Dâu" class="w-full h-auto rounded-lg shadow-lg">
+            <div class="p-4" data-animate="fade-right" data-animate-once="true">
+              <div class="relative inline-block w-full group">
+                <img src="./assets/image/bride.jpg" alt="Cô Dâu" class="w-full h-auto rounded-lg shadow-lg">
+                <div
+                  class="speech-bubble -top-6 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <i class="fa-solid fa-quote-left quote-icon"></i>
+                  Đây là 'cô dâu Như Thương'
+                  <i class="fa-solid fa-quote-right quote-icon"></i>
+                </div>
+                <div class="social-overlay">
+                  <a href="https://www.facebook.com/thuong.nhu.353" target="_blank" class="social-icon-btn" title="Facebook">
+                    <i class="fa-brands fa-facebook-f"></i>
+                  </a>
+                  <a href="https://www.tiktok.com/@nvsang2015" target="_blank" class="social-icon-btn" title="TikTok">
+                    <i class="fa-brands fa-tiktok"></i>
+                  </a>
+                </div>
+              </div>
               <h1 class="mt-4 text-4xl font-semibold font-wedding">Nguyễn Thị Như Thương</h1>
               <div class="mt-2 text-sm text-slate-600">
                 Một cô gái nhỏ nhắn đến từ Tây Ninh, vốn yêu thích lịch sử nhưng lại học ngành IT tại Trường ĐH Công Thương.
                 Để từ đó, cô đã tìm thấy một người bạn, người đồng đội, người cùng cô viết code và viết tiếp câu chuyện tương lai.
               </div>
-              <div class="mt-3 text-sm text-slate-500">
-                <a href="https://www.facebook.com/thuong.nhu.353" target="_blank"
-                  class="inline-block color-gray rounded-full text-xl border w-8 h-8 hover:bg-blue-400">
+              <div class="mt-4 md:hidden flex justify-center gap-4">
+                <a href="https://www.facebook.com/thuong.nhu.353" target="_blank" class="social-icon-btn" title="Facebook">
                   <i class="fa-brands fa-facebook-f"></i>
+                </a>
+                <a href="https://www.tiktok.com/@nvsang2015" target="_blank" class="social-icon-btn" title="TikTok">
+                  <i class="fa-brands fa-tiktok"></i>
                 </a>
               </div>
             </div>
@@ -148,14 +185,14 @@
       </section>
       <section class="relative py-16 px-6" id="timeline">
         <div class="mx-auto max-w-5xl">
-          <h1 class="font-wedding text-center text-5xl font-semibold text-heading">Câu chuyện của chúng tôi bắt đầu từ đây...</h1>
-          <p class="mt-2 text-center text-lg text-slate-600">Từ những ngày đầu e ấp đến giây phút quyết định gắn bó trọn đời.</p>
+          <h1 class="font-wedding text-center text-5xl font-semibold text-heading text-pink-400" data-animate="fade-up" data-animate-once="true">Câu chuyện của chúng tôi bắt đầu từ đây...</h1>
+          <p class="mt-2 text-center text-lg text-slate-600" data-animate="fade-up" data-animate-delay="0.1" data-animate-once="true">Từ những ngày đầu e ấp đến giây phút quyết định gắn bó trọn đời.</p>
 
           <div class="relative mt-12">
             <span class="absolute left-1/2 top-0 h-full w-[3px] -translate-x-1/2 bg-gradient-to-b from-brand/10 via-brand/50 to-brand/10"></span>
 
             <div class="space-y-12">
-              <article class="timeline-entry relative flex flex-col gap-6 md:flex-row md:items-center">
+              <article class="timeline-entry relative flex flex-col gap-6 md:flex-row md:items-center" data-animate="fade-up" data-animate-once="true">
                 <div class="timeline-point"></div>
                 <div class="w-full md:w-1/2 md:pr-12">
                   <div class="rounded-2xl bg-white/80 p-6 shadow-[0px_2px_16px_0px_#d6cfcf] md:shadow-lg backdrop-blur">
@@ -169,7 +206,7 @@
                 </div>
               </article>
 
-              <article class="timeline-entry relative flex flex-col gap-6 md:flex-row md:items-center md:flex-row-reverse">
+              <article class="timeline-entry relative flex flex-col gap-6 md:flex-row md:items-center md:flex-row-reverse" data-animate="fade-up" data-animate-once="true">
                 <div class="timeline-point"></div>
                 <div class="w-full md:w-1/2 md:pl-12 md:text-left">
                   <div class="rounded-2xl bg-white/80 p-6 shadow-[0px_2px_16px_0px_#d6cfcf] md:shadow-lg backdrop-blur">
@@ -183,7 +220,7 @@
                 </div>
               </article>
 
-              <article class="timeline-entry relative flex flex-col gap-6 md:flex-row md:items-center">
+              <article class="timeline-entry relative flex flex-col gap-6 md:flex-row md:items-center" data-animate="fade-up" data-animate-once="true">
                 <div class="timeline-point"></div>
                 <div class="w-full md:w-1/2 md:pr-12">
                   <div class="rounded-2xl bg-white/80 p-6 shadow-[0px_2px_16px_0px_#d6cfcf] md:shadow-lg backdrop-blur">
@@ -197,7 +234,7 @@
                 </div>
               </article>
 
-              <article class="timeline-entry relative flex flex-col gap-6 md:flex-row md:items-center md:flex-row-reverse">
+              <article class="timeline-entry relative flex flex-col gap-6 md:flex-row md:items-center md:flex-row-reverse" data-animate="fade-up" data-animate-once="true">
                 <div class="timeline-point"></div>
                 <div class="w-full md:w-1/2 md:pl-12">
                   <div class="rounded-2xl bg-white/80 p-6 shadow-[0px_2px_16px_0px_#d6cfcf] md:shadow-lg backdrop-blur">
@@ -211,7 +248,7 @@
                 </div>
               </article>
 
-              <article class="timeline-entry relative flex flex-col gap-6 md:flex-row md:items-center">
+              <article class="timeline-entry relative flex flex-col gap-6 md:flex-row md:items-center" data-animate="fade-up" data-animate-once="true">
                 <div class="timeline-point"></div>
                 <div class="w-full md:w-1/2 md:pr-12">
                   <div class="rounded-2xl bg-white/80 p-6 shadow-[0px_2px_16px_0px_#d6cfcf] md:shadow-lg backdrop-blur">
@@ -225,7 +262,7 @@
                 </div>
               </article>
 
-              <article class="timeline-entry relative flex flex-col gap-6 md:flex-row md:items-center md:flex-row-reverse">
+              <article class="timeline-entry relative flex flex-col gap-6 md:flex-row md:items-center md:flex-row-reverse" data-animate="fade-up" data-animate-once="true">
                 <div class="timeline-point"></div>
                 <div class="w-full md:w-1/2 md:pl-12">
                   <div class="rounded-2xl bg-white/80 p-6 shadow-[0px_2px_16px_0px_#d6cfcf] md:shadow-lg backdrop-blur">
@@ -239,7 +276,7 @@
                 </div>
               </article>
 
-              <article class="timeline-entry relative flex flex-col gap-6 md:flex-row md:items-center">
+              <article class="timeline-entry relative flex flex-col gap-6 md:flex-row md:items-center" data-animate="fade-up" data-animate-once="true">
                 <div class="timeline-point"></div>
                 <div class="w-full md:w-1/2 md:pr-12">
                   <div class="rounded-2xl bg-white/80 p-6 shadow-[0px_2px_16px_0px_#d6cfcf] md:shadow-lg backdrop-blur">
@@ -253,7 +290,7 @@
                 </div>
               </article>
 
-              <article class="timeline-entry relative flex flex-col gap-6 md:flex-row md:items-center md:flex-row-reverse">
+              <article class="timeline-entry relative flex flex-col gap-6 md:flex-row md:items-center md:flex-row-reverse" data-animate="fade-up" data-animate-once="true">
                 <div class="timeline-point"></div>
                 <div class="w-full md:w-1/2 md:pl-12">
                   <div class="rounded-2xl bg-white/80 p-6 shadow-[0px_2px_16px_0px_#d6cfcf] md:shadow-lg backdrop-blur">
@@ -424,7 +461,7 @@
       </section>
       <section class="bg-stone-50 py-20" id="gallery">
         <div class="mx-auto flex w-full max-w-6xl flex-col gap-12 px-6">
-          <div class="space-y-5 text-center sm:text-left" data-animate="fade" data-animate-delay="0.15">
+          <div class="space-y-5 text-center sm:text-left">
             <p class="text-xs uppercase tracking-[0.5em] text-center text-brand-400">Khoảnh khắc</p>
             <h2 class="font-wedding text-5xl font-semibold text-center text-pink-400">Những giây phút yêu thương</h2>
             <p class="mx-auto max-w-3xl text-base text-slate-600 text-center">
@@ -436,7 +473,9 @@
             <!-- Gallery Item 1 (Large Feature) -->
             <div
               class="md:col-span-2 md:row-span-2 relative group overflow-hidden rounded-xl cursor-pointer shadow-md hover:shadow-2xl hover:shadow-pink-200 transition-all duration-500 ease-out"
-              data-lightbox-src="./assets/image/bg-main.jpg">
+              data-lightbox-src="./assets/image/bg-main.jpg"
+              data-animate="fade-up"
+              data-animate-once="true">
               <img src="./assets/image/bg-main.jpg" alt="Khoảnh khắc 1"
                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
               <div
@@ -455,7 +494,7 @@
             <!-- Gallery Item 2 -->
             <div
               class="relative group overflow-hidden rounded-xl cursor-pointer shadow-md hover:shadow-2xl hover:shadow-pink-200 transition-all duration-500 ease-out"
-              data-lightbox-src="./assets/image/bride.jpg">
+              data-lightbox-src="./assets/image/bride.jpg" data-animate="fade-up" data-animate-delay="0.1" data-animate-once="true">
               <img src="./assets/image/bride.jpg" alt="Khoảnh khắc 2"
                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
               <div
@@ -474,7 +513,10 @@
             <!-- Gallery Item 3 -->
             <div
               class="relative group overflow-hidden rounded-xl cursor-pointer shadow-md hover:shadow-2xl hover:shadow-pink-200 transition-all duration-500 ease-out"
-              data-lightbox-src="./assets/image/groom.jpg">
+              data-lightbox-src="./assets/image/groom.jpg"
+              data-animate="fade-up"
+              data-animate-delay="0.2"
+              data-animate-once="true">
               <img src="./assets/image/groom.jpg" alt="Khoảnh khắc 3"
                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
               <div
@@ -493,7 +535,9 @@
             <!-- Gallery Item 4 (Wide) -->
             <div
               class="relative group overflow-hidden rounded-xl cursor-pointer shadow-md hover:shadow-2xl hover:shadow-pink-200 transition-all duration-500 ease-out"
-              data-lightbox-src="./assets/image/bg-main.jpg">
+              data-lightbox-src="./assets/image/bg-main.jpg"
+              data-animate="fade-up"
+              data-animate-once="true">
               <img src="./assets/image/bg-main.jpg" alt="Khoảnh khắc 4"
                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
               <div
@@ -512,7 +556,10 @@
             <!-- Gallery Item 5 -->
             <div
               class="md:col-span-2 md:row-span-2 relative group overflow-hidden rounded-xl cursor-pointer shadow-md hover:shadow-2xl hover:shadow-pink-200 transition-all duration-500 ease-out"
-              data-lightbox-src="./assets/image/groom.jpg">
+              data-lightbox-src="./assets/image/groom.jpg"
+              data-animate="fade-up"
+              data-animate-delay="0.1"
+              data-animate-once="true">
               <img src="./assets/image/groom.jpg" alt="Khoảnh khắc 5"
                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
               <div
@@ -531,7 +578,7 @@
             <!-- Gallery Item 6 -->
             <div
               class="relative group overflow-hidden rounded-xl cursor-pointer shadow-md hover:shadow-2xl hover:shadow-pink-200 transition-all duration-500 ease-out"
-              data-lightbox-src="./assets/image/bride.jpg">
+              data-lightbox-src="./assets/image/bride.jpg" data-animate="fade-up" data-animate-delay="0.2" data-animate-once="true">
               <img src="./assets/image/bride.jpg" alt="Khoảnh khắc 6"
                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
               <div
