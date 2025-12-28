@@ -1,0 +1,64 @@
+/* Mobile Menu Styles */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s linear 0.3s, opacity 0.3s ease-in-out;
+}
+
+.mobile-menu.active {
+  visibility: visible;
+  opacity: 1;
+  transition-delay: 0s;
+}
+
+.mobile-menu-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  cursor: pointer;
+}
+
+.mobile-menu-content {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 280px;
+  max-width: 80vw;
+  height: 100%;
+  background: linear-gradient(135deg, #ec4899 0%, #f472b6 100%);
+  box-shadow: -4px 0 20px rgba(236, 72, 153, 0.3);
+  transform: translateX(100%);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow-y: auto;
+}
+
+.mobile-menu.active .mobile-menu-content {
+  transform: translateX(0);
+}
+
+.mobile-menu-link {
+  display: flex;
+  align-items: center;
+  font-family: 'Playpen Sans', cursive;
+}
+
+.mobile-menu-link i {
+  font-size: 1.2rem;
+}
+
+/* Hide mobile menu on desktop */
+@media (min-width: 768px) {
+  .mobile-menu {
+    display: none;
+  }
+}

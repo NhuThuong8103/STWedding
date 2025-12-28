@@ -18,6 +18,7 @@
     />
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="./assets/style.css" />
+    <link rel="stylesheet" href="./assets/mobile-menu.css" />
     <link rel="stylesheet" href="./assets/game.css" />
     <link rel="stylesheet" href="./assets/couple.css" />
   </head>
@@ -35,61 +36,109 @@
     </div>
 
     <nav class="font-wedding bg-neutral-primary absolute w-full z-20 top-0 start-0 bg-[#faebd75c]">
-      <div class="max-w-screen-xl flex flex-col items-center justify-center mx-auto p-4">
+      <div class="max-w-screen-xl flex flex-row items-center justify-between mx-auto p-2">
+        <!-- Spacer for mobile layout -->
+        <div class="w-10 md:hidden"></div>
+
         <!-- Mobile Logo -->
-        <h1 class="logo text-6xl text-white md:hidden">Sang & Thương</h1>
-          <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-body rounded-base md:hidden hover:bg-neutral-secondary-soft hover:text-heading focus:outline-none focus:ring-2 focus:ring-neutral-tertiary" aria-controls="navbar-default" aria-expanded="false">
-              <span class="sr-only">Open main menu</span>
-              <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M5 7h14M5 12h14M5 17h14"/></svg>
-          </button>
-          <div class="hidden w-full md:block md:w-auto mt-4" id="navbar-default">
-            <ul
-              class="font-medium text-2xl flex flex-col p-4 md:p-0 border border-default rounded-base bg-neutral-secondary-soft md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-transparent justify-center items-center">
-              <li>
-              <a href="#couple"
-                class="block py-2 px-3 text-white text-heading hover:text-pink-500 transition-colors md:p-0">Couple</a>
-              </li>
-              <li>
-              <a href="#timeline"
-                class="block py-2 px-3 text-white text-heading hover:text-pink-500 transition-colors md:p-0">Timeline</a>
-              </li>
-              <li>
-              <a href="#events"
-                class="block py-2 px-3 text-white text-heading hover:text-pink-500 transition-colors md:p-0">Events</a>
-              </li>
+        <h1 class="logo text-3xl text-white md:hidden">Sang & Thương</h1>
 
-              <!-- Desktop Logo -->
-              <li class="hidden md:block">
-                <h1 class="logo text-7xl text-pink-400 mx-4">Sang & Thương</h1>
-              </li>
+        <!-- Mobile Hamburger Button -->
+        <button id="mobile-menu-toggle" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-white rounded-lg md:hidden hover:bg-pink-500/30 focus:outline-none focus:ring-2 focus:ring-pink-400" aria-controls="mobile-menu" aria-expanded="false">
+          <span class="sr-only">Open main menu</span>
+          <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+            <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M5 7h14M5 12h14M5 17h14"/>
+          </svg>
+        </button>
 
-              <li>
-                <a href="#gallery"
-                  class="block py-2 px-3 text-white text-heading hover:text-pink-500 transition-colors md:p-0">Gallery</a>
-              </li>
-              <li>
-                <a href="#messages"
-                  class="block py-2 px-3 text-white text-heading hover:text-pink-500 transition-colors md:p-0">Wishes</a>
-                </li>
-                <li>
-                  <a href="#rsvp" class="block py-2 px-3 text-white text-heading hover:text-pink-500 transition-colors md:p-0">RSVP</a>
-              </li>
+        <!-- Desktop Navigation -->
+        <div class="hidden md:flex md:w-full md:justify-center" id="desktop-menu">
+          <ul class="font-medium text-2xl flex flex-row space-x-8 justify-center items-center">
+            <li>
+              <a href="#couple" class="block py-2 px-3 text-white hover:text-pink-400 transition-colors">Couple</a>
+            </li>
+            <li>
+              <a href="#timeline" class="block py-2 px-3 text-white hover:text-pink-400 transition-colors">Timeline</a>
+            </li>
+            <li>
+              <a href="#events" class="block py-2 px-3 text-white hover:text-pink-400 transition-colors">Events</a>
+            </li>
+
+            <!-- Desktop Logo -->
+            <li>
+              <h1 class="logo text-5xl text-pink-400 mx-4">Sang & Thương</h1>
+            </li>
+
+            <li>
+              <a href="#gallery" class="block py-2 px-3 text-white hover:text-pink-400 transition-colors">Gallery</a>
+            </li>
+            <li>
+              <a href="#messages" class="block py-2 px-3 text-white hover:text-pink-400 transition-colors">Wishes</a>
+            </li>
+            <li>
+              <a href="#rsvp" class="block py-2 px-3 text-white hover:text-pink-400 transition-colors">RSVP</a>
+            </li>
           </ul>
-          </div>
+        </div>
       </div>
     </nav>
+
+    <!-- Mobile Sidebar Menu -->
+    <div id="mobile-menu" class="mobile-menu">
+      <div class="mobile-menu-overlay"></div>
+      <div class="mobile-menu-content">
+        <div class="flex justify-between items-center p-6 border-b border-pink-300">
+          <h2 class="logo text-4xl text-white font-wedding">Sang & Thương</h2>
+          <button id="mobile-menu-close" class="text-white text-3xl hover:text-pink-200 transition-colors">
+            <i class="fa-solid fa-times"></i>
+          </button>
+        </div>
+        <ul class="font-medium text-1xl flex flex-col p-6 space-y-4">
+          <li>
+            <a href="#couple" class="mobile-menu-link block py-3 px-4 text-white hover:bg-pink-500/30 rounded-lg transition-all">
+              <i class="fa-solid fa-heart mr-3"></i>Couple
+            </a>
+          </li>
+          <li>
+            <a href="#timeline" class="mobile-menu-link block py-3 px-4 text-white hover:bg-pink-500/30 rounded-lg transition-all">
+              <i class="fa-solid fa-clock mr-3"></i>Timeline
+            </a>
+          </li>
+          <li>
+            <a href="#events" class="mobile-menu-link block py-3 px-4 text-white hover:bg-pink-500/30 rounded-lg transition-all">
+              <i class="fa-solid fa-calendar mr-3"></i>Events
+            </a>
+          </li>
+          <li>
+            <a href="#gallery" class="mobile-menu-link block py-3 px-4 text-white hover:bg-pink-500/30 rounded-lg transition-all">
+              <i class="fa-solid fa-images mr-3"></i>Gallery
+            </a>
+          </li>
+          <li>
+            <a href="#messages" class="mobile-menu-link block py-3 px-4 text-white hover:bg-pink-500/30 rounded-lg transition-all">
+              <i class="fa-solid fa-comment mr-3"></i>Wishes
+            </a>
+          </li>
+          <li>
+            <a href="#rsvp" class="mobile-menu-link block py-3 px-4 text-white hover:bg-pink-500/30 rounded-lg transition-all">
+              <i class="fa-solid fa-envelope mr-3"></i>RSVP
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
     <header
       class="relative isolate flex min-h-screen bg-[url('./assets/image/bg-main.jpg')] bg-cover bg-center md:bg-fixed bg-no-repeat flex-col text-black p-7 items-center justify-center"
       id="home">
       <canvas id="effectCanvas" class="absolute inset-0 pointer-events-none"></canvas>
       <div class="mx-auto flex w-full max-w-6xl flex-col items-center gap-6 px-6 py-5">
         <div class="text-center">
-          <h1 id="typing-text" class="text-7xl font-wedding text-white drop-shadow-lg">We're getting married, see you soon!</h1>
-          <p class="text-xl text-white mt-2">Chúng mình sắp cưới! 30 tháng 4 năm 2026</p>
+          <h1 id="typing-text" class="md:text-7xl text-4xl font-wedding text-white drop-shadow-lg">We're getting married, see you soon!</h1>
+          <p class="text-lg md:text-xl text-white mt-2">Chúng mình sắp cưới! 30 tháng 4 năm 2026</p>
         </div>
       <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 cursor-pointer z-10"
         id="scroll-down">
-        <span class="text-white text-sm uppercase tracking-[0.3em] font-medium opacity-80">Scroll</span>
+        <span class="text-white md:text-sm text-xs uppercase tracking-[0.3em] font-medium opacity-80">Scroll</span>
         <div class="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center p-1">
           <div class="w-1 h-2 bg-white rounded-full animate-scroll-dot"></div>
         </div>
@@ -100,17 +149,17 @@
     <main class="bg-white min-h-[90vh]">
       <section class="py-16 px-6" id="couple">
         <div class="font-wedding max-w-4xl mx-auto text-center">
-          <h1 class="text-5xl font-bold text-heading mb-4 text-pink-400">Cô Dâu & Chú Rể</h1>
+          <h1 class="md:text-5xl text-4xl font-bold text-heading mb-4 text-pink-400">Cô Dâu & Chú Rể</h1>
         </div>
         <div class="max-w-2xl mx-auto text-center">
-          <p class="text-lg text-slate-600">
+          <p class="md:text-lg text-base text-slate-600">
             Hành trình tình yêu của chúng tôi không phải là một đường thẳng, mà là một hành trình đầy ắp những kỷ niệm, tiếng cười
             và cả những thử thách mà chúng tôi đã cùng nhau vượt qua. Mỗi chương trong câu chuyện này đều là một minh chứng cho sự
             thấu hiểu và gắn kết bền chặt giữa hai tâm hồn.
           </p>
           <div class="m-4">
             <div class="flex justify-center space-x-4">
-              <img src="./assets/image/swans-couple.svg" alt="Swans Couple" class="w-24 h-24">
+              <img src="./assets/image/swans-couple.svg" alt="Swans Couple" class="md:w-24 md:h-24 w-12 h-12">
             </div>
           </div>
         </div>
@@ -127,14 +176,14 @@
                 </div>
                 <div class="social-overlay">
                   <a href="https://www.facebook.com/sang98.nguyen" target="_blank" class="social-icon-btn" title="Facebook">
-                    <i class="fa-brands fa-facebook-f"></i>
+                    <i class="fa-brands fa-facebook-f text-blue-500"></i>
                   </a>
                   <a href="https://www.tiktok.com/@nvsang2015" target="_blank" class="social-icon-btn" title="TikTok">
                     <i class="fa-brands fa-tiktok"></i>
                   </a>
                 </div>
               </div>
-              <h1 class="mt-4 text-4xl font-semibold font-wedding">Nguyễn Văn Sang</h1>
+              <h1 class="mt-4 md:text-4xl text-3xl font-semibold font-wedding">Nguyễn Văn Sang</h1>
               <div class="mt-2 text-sm text-slate-600">
                 Là chàng trai sinh ra tại vùng đất miền Trung - Quảng Nam.
                 Văn Sang đã lớn lên và học tập chăm chỉ đổ ngành IT tại Trường ĐH Công Thương,
@@ -142,7 +191,7 @@
               </div>
               <div class="mt-4 md:hidden flex justify-center gap-4">
                 <a href="https://www.facebook.com/sang98.nguyen" target="_blank" class="social-icon-btn" title="Facebook">
-                  <i class="fa-brands fa-facebook-f"></i>
+                  <i class="fa-brands fa-facebook-f text-blue-500"></i>
                 </a>
                 <a href="https://www.tiktok.com/@nvsang2015" target="_blank" class="social-icon-btn" title="TikTok">
                   <i class="fa-brands fa-tiktok"></i>
@@ -160,23 +209,23 @@
                 </div>
                 <div class="social-overlay">
                   <a href="https://www.facebook.com/thuong.nhu.353" target="_blank" class="social-icon-btn" title="Facebook">
-                    <i class="fa-brands fa-facebook-f"></i>
+                    <i class="fa-brands fa-facebook-f text-blue-500"></i>
                   </a>
                   <a href="https://www.tiktok.com/@nvsang2015" target="_blank" class="social-icon-btn" title="TikTok">
                     <i class="fa-brands fa-tiktok"></i>
                   </a>
                 </div>
               </div>
-              <h1 class="mt-4 text-4xl font-semibold font-wedding">Nguyễn Thị Như Thương</h1>
+              <h1 class="mt-4 md:text-4xl text-3xl font-semibold font-wedding">Nguyễn Thị Như Thương</h1>
               <div class="mt-2 text-sm text-slate-600">
                 Một cô gái nhỏ nhắn đến từ Tây Ninh, vốn yêu thích lịch sử nhưng lại học ngành IT tại Trường ĐH Công Thương.
                 Để từ đó, cô đã tìm thấy một người bạn, người đồng đội, người cùng cô viết code và viết tiếp câu chuyện tương lai.
               </div>
               <div class="mt-4 md:hidden flex justify-center gap-4">
                 <a href="https://www.facebook.com/thuong.nhu.353" target="_blank" class="social-icon-btn" title="Facebook">
-                  <i class="fa-brands fa-facebook-f"></i>
+                  <i class="fa-brands fa-facebook-f text-blue-500"></i>
                 </a>
-                <a href="https://www.tiktok.com/@nvsang2015" target="_blank" class="social-icon-btn" title="TikTok">
+                <a href="https://www.tiktok.com/@ntn.thuong11" target="_blank" class="social-icon-btn" title="TikTok">
                   <i class="fa-brands fa-tiktok"></i>
                 </a>
               </div>
@@ -186,8 +235,8 @@
       </section>
       <section class="relative py-16 px-6" id="timeline">
         <div class="mx-auto max-w-5xl">
-          <h1 class="font-wedding text-center text-5xl font-semibold text-heading text-pink-400" data-animate="fade-up" data-animate-once="true">Câu chuyện của chúng tôi bắt đầu từ đây...</h1>
-          <p class="mt-2 text-center text-lg text-slate-600" data-animate="fade-up" data-animate-delay="0.1" data-animate-once="true">Từ những ngày đầu e ấp đến giây phút quyết định gắn bó trọn đời.</p>
+          <h1 class="font-wedding text-center md:text-5xl text-4xl font-semibold text-heading text-pink-400" data-animate="fade-up" data-animate-once="true">Câu chuyện của chúng tôi bắt đầu từ đây...</h1>
+          <p class="mt-2 text-center md:text-lg text-base text-slate-600" data-animate="fade-up" data-animate-delay="0.1" data-animate-once="true">Từ những ngày đầu e ấp đến giây phút quyết định gắn bó trọn đời.</p>
 
           <div class="relative mt-12">
             <span class="absolute left-1/2 top-0 h-full w-[3px] -translate-x-1/2 bg-gradient-to-b from-brand/10 via-brand/50 to-brand/10"></span>
@@ -310,8 +359,8 @@
       </section>
       <section class="py-16 px-8 md:px-3 bg-slate-50 bg-gradient-to-r from-pink-50 to-rose-50" id="events">
         <div class="mx-auto max-w-4xl text-center">
-          <h2 class="font-wedding text-5xl font-bold text-heading">Ngày trọng đại</h2>
-          <p class="mt-4 text-lg text-slate-600">Sau 7 năm, chúng tôi quyết định viết tiếp hành trình với một đám cưới ấm áp bên gia đình </br> và những người thân yêu.</p>
+          <h2 class="font-wedding md:text-5xl text-4xl font-bold text-heading">Ngày trọng đại</h2>
+          <p class="mt-4 md:text-lg text-base text-slate-600">Sau 7 năm, chúng tôi quyết định viết tiếp hành trình với một đám cưới ấm áp bên gia đình </br> và những người thân yêu.</p>
           <div class="m-4 mb-8">
             <div class="flex justify-center space-x-4">
               <div class="bg-[url('./assets/image/ring.png')] bg-cover bg-center w-10 h-8"></div>
@@ -352,7 +401,7 @@
           <!-- Left Column: Countdown -->
           <div class="flex w-full md:w-1/2 flex-col items-center gap-8 text-center">
             <div>
-              <h2 class="font-wedding text-5xl font-semibold text-heading text-pink-400">Cùng đếm ngược thời gian</h2>
+              <h2 class="font-wedding md:text-5xl text-4xl font-semibold text-heading text-pink-400">Cùng đếm ngược thời gian</h2>
               </div>
 
             <div class="rounded-xl bg-white/80 px-6 py-4 shadow-md backdrop-blur">
@@ -464,7 +513,7 @@
         <div class="mx-auto flex w-full max-w-6xl flex-col gap-12 px-6">
           <div class="space-y-5 text-center sm:text-left">
             <p class="text-xs uppercase tracking-[0.5em] text-center text-brand-400">Khoảnh khắc</p>
-            <h2 class="font-wedding text-5xl font-semibold text-center text-pink-400">Những giây phút yêu thương</h2>
+            <h2 class="font-wedding md:text-5xl text-4xl font-semibold text-center text-pink-400">Những giây phút yêu thương</h2>
             <p class="mx-auto max-w-3xl text-base text-slate-600 text-center">
               Bộ sưu tập ảnh cưới sẽ được cập nhật liên tục. Chúng tôi rất háo hức chia sẻ cùng bạn những khoảnh
               khắc tuyệt đẹp nhất trong hành trình chuẩn bị cho ngày cưới.
@@ -619,8 +668,8 @@
       <section class="py-20 bg-slate-50 bg-gradient-to-r from-pink-50 to-rose-50" id="messages">
         <div class="mx-auto max-w-4xl px-6">
           <div class="text-center mb-12">
-            <h2 class="font-wedding text-5xl font-bold text-pink-400">Lời chúc từ người thân yêu</h2>
-            <p class="mt-4 text-lg text-slate-600 italic">Trân trọng và biết ơn những tình cảm nồng ấm mà mọi người đã dành
+            <h2 class="font-wedding md:text-5xl text-4xl font-bold text-pink-400">Lời chúc từ người thân yêu</h2>
+            <p class="mt-4 md:text-lg text-base text-slate-600 italic">Trân trọng và biết ơn những tình cảm nồng ấm mà mọi người đã dành
               cho chúng mình.</p>
           </div>
           <div class="relative overflow-hidden">
@@ -701,7 +750,7 @@
       <section class="py-20" id="rsvp">
         <div class="mx-auto flex w-full max-w-6xl flex-col gap-12 px-6">
           <div class="space-y-5 text-center sm:text-left" data-animate="fade" data-animate-delay="0.15">
-            <h2 class="font-wedding text-5xl font-semibold text-center text-pink-400">Chúng con - em rất mong được gặp Quý khách!</h2>
+            <h2 class="font-wedding md:text-5xl text-4xl font-semibold text-center text-pink-400">Chúng con - em rất mong được gặp Quý khách!</h2>
           </div>
           <form
             class="opacity-0 mx-auto w-full max-w-xl space-y-6 rounded-3xl border border-brand-100 bg-white/90 p-8 shadow-xl shadow-brand-200/50 backdrop-blur"
@@ -772,18 +821,15 @@
 
     <!-- Floating Notification -->
     <div id="toast-notification"
-      class="flex fixed bottom-6 left-6 right-6 md:right-auto z-[1001] transform translate-y-12 opacity-0 transition-all duration-500 ease-out">
+      class="flex fixed bottom-5 left-6 right-6 md:right-auto z-[1001] transform translate-y-12 opacity-0 transition-all duration-500 ease-out">
       <div
-        class="relative bg-pink-100 hover:bg-pink-200 border border-pink-200 shadow-xl rounded-2xl p-4 pr-10 flex items-start gap-3 w-full md:max-w-sm animate-bounce-subtle">
-        <div class="bg-pink-400 rounded-full p-2 flex-shrink-0">
-          <i class="fa fa-heart text-white text-xs"></i>
-        </div>
+        class="relative bg-pink-100 hover:bg-pink-200 border border-pink-200 shadow-xl rounded-xl md:rounded-2xl p-2.5 pr-8 md:p-4 md:pr-10 flex items-start gap-2 md:gap-3 w-full md:max-w-sm animate-bounce-subtle">
         <div class="flex-grow">
-          <p class="text-xs font-semibold text-pink-600 uppercase tracking-wider mb-1">Vừa cập nhật</p>
-          <p id="toast-message" class="text-sm text-slate-700 leading-snug"></p>
+          <p class="text-[0.65rem] md:text-xs font-semibold text-pink-600 uppercase tracking-wider mb-0.5 md:mb-1"><i class="fa fa-heart text-pink-500 text-[0.6rem] md:text-xs"></i> Vừa cập nhật</p>
+          <p id="toast-message" class="text-xs md:text-sm text-slate-700 leading-snug"></p>
         </div>
-        <button id="toast-close" class="absolute top-2 right-2 text-pink-400 hover:text-pink-600 p-1 transition-colors">
-          <i class="fa-solid fa-xmark text-sm"></i>
+        <button id="toast-close" class="absolute top-1.5 right-1.5 md:top-2 md:right-2 text-pink-400 hover:text-pink-600 p-0.5 md:p-1 transition-colors">
+          <i class="fa-solid fa-xmark text-xs md:text-sm"></i>
         </button>
       </div>
     </div>

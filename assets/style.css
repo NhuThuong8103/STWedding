@@ -157,7 +157,7 @@ html, body {
 
 @media (max-width: 767px) {
   .music-control {
-    bottom: 30px;
+    bottom: 20px;
     right: 20px;
   }
 }
