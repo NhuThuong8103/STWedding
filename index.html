@@ -18,6 +18,7 @@
     />
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="./assets/style.css" />
+    <link rel="stylesheet" href="./assets/game.css" />
     <link rel="stylesheet" href="./assets/couple.css" />
   </head>
   <body class="bg-white text-slate-800 antialiased">
@@ -797,6 +798,7 @@
     <script src="./assets/js/preloader.js" defer></script>
     <script src="./assets/js/effects.js" defer></script>
     <script src="./assets/js/lightbox.js" defer></script>
+    <script src="./assets/js/game.js" defer></script>
 
 
     <!-- Music Control -->
@@ -805,5 +807,22 @@
       <i class="fa-solid fa-compact-disc music-icon-playing text-brand text-2xl"></i>
       <i class="fa-solid fa-volume-xmark music-icon-muted text-brand text-2xl"></i>
     </button>
+
+    <!-- Game Control -->
+    <button id="game-control" class="game-control bg-pink-200/80 backdrop-blur shadow-lg border border-pink-200">
+      <i class="fa-solid fa-gamepad text-brand text-2xl"></i>
+    </button>
+
+    <!-- Game Modal -->
+    <div id="game-modal">
+      <div class="game-modal-content">
+        <span class="game-modal-close">&times;</span>
+        <div class="game-modal-header text-center p-4">
+          <h3 class="font-wedding text-3xl text-pink-500">Chơi một chút cùng Sang & Thương nhé! ❤️</h3>
+          <small class="text-pink-500 text-sm">Một phần thưởng đang chờ bạn nhé! <i class="fa-solid fa-gift"></i></small>
+        </div>
+        <iframe src="./puzzle.html" class="game-iframe"></iframe>
+      </div>
+    </div>
   </body>
 </html>

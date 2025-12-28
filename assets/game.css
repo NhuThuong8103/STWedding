@@ -1,0 +1,89 @@
+/* Game Control */
+.game-control {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  z-index: 1100;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  padding: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 767px) {
+  .game-control {
+    bottom: 90px;
+    right: 20px;
+  }
+}
+
+.game-control:hover {
+  transform: scale(1.1);
+}
+
+/* Game Modal */
+#game-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 2000;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(5px);
+}
+
+#game-modal.show {
+  display: flex;
+}
+
+.game-modal-content {
+  position: relative;
+  width: 95%;
+  max-width: 540px;
+  height: 700px; /* Increased height to accommodate header */
+  background: #fff;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  animation: modalScale 0.3s ease-out;
+  display: flex;
+  flex-direction: column;
+}
+
+.game-modal-header {
+  border-bottom: 1px dashed #fce7f3;
+  background: #fff5f7;
+}
+
+@keyframes modalScale {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.game-modal-close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 2.5rem;
+  color: #333;
+  cursor: pointer;
+  z-index: 2010;
+  line-height: 1;
+  transition: color 0.2s;
+}
+
+.game-modal-close:hover {
+  color: #f472b6;
+}
+
+.game-iframe {
+  flex-grow: 1;
+  width: 100%;
+  border: none;
+}

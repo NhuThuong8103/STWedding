@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Sliding Puzzle 6x6 Auto Crop</title>
+  <style>
+    body {
+      background: #eee;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding-top: 20px;
+      font-family: Arial;
+    }
+
+    #puzzle {
+      width: 360px;
+      height: 360px;
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 1px;
+      background: #333;
+      touch-action: none;
+      margin: 0 auto;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .tile {
+      width: 60px;
+      height: 60px;
+      background-size: 360px 360px;
+      cursor: grab;
+    }
+
+    .empty {
+      background: #d9d9d9;
+      border: 2px dashed #999;
+      box-sizing: border-box;
+      cursor: default;
+    }
+
+    #sample-image {
+      width: 180px;
+      height: 180px;
+      margin-top: 20px;
+      border: 2px solid #333;
+      object-fit: cover;
+    }
+
+    #win-message {
+      margin-top: 20px;
+      padding: 10px;
+      background: #4caf50;
+      color: white;
+      font-size: 20px;
+      display: none; /* Ẩn thông báo khi chưa thắng */
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Puzzle Game -->
+  <div id="puzzle"></div>
+
+  <!-- Sample Image phía dưới -->
+  <img id="sample-image" alt="Sample Image" />
+
+  <!-- Thông báo thắng cuộc -->
+  <div id="win-message">🎉 Bạn đã thắng! Chúc mừng!</div>
+
+  <script>
+    const SIZE = 6;
+    const PUZZLE_SIZE = 360;
+    const TILE_SIZE = PUZZLE_SIZE / SIZE;
+
+    // Danh sách các hình ảnh để chọn ngẫu nhiên
+    const IMAGE_LIST = [
+      "./assets/image/bg-main.jpg",
+      "./assets/image/bride.jpg",
+      "./assets/image/groom.jpg"
+    ];
+
+    // Lựa chọn ngẫu nhiên một hình ảnh
+    const IMAGE_SRC = IMAGE_LIST[Math.floor(Math.random() * IMAGE_LIST.length)];
+
+    const puzzle = document.getElementById("puzzle");
+    const sampleImage = document.getElementById("sample-image");
+    const winMessage = document.getElementById("win-message");
+    let tiles = [];
+
+    /* LOAD + AUTO CROP ẢNH */
+    const img = new Image();
+    img.crossOrigin = "Anonymous";
+    img.src = IMAGE_SRC;
+    img.onload = () => {
+      const cropSize = Math.min(img.width, img.height);
+      const sx = (img.width - cropSize) / 2;
+      const sy = (img.height - cropSize) / 2;
+
+      const canvas = document.createElement("canvas");
+      canvas.width = PUZZLE_SIZE;
+      canvas.height = PUZZLE_SIZE;
+      const ctx = canvas.getContext("2d");
+
+      ctx.drawImage(
+        img,
+        sx, sy, cropSize, cropSize,
+        0, 0, PUZZLE_SIZE, PUZZLE_SIZE
+      );
+
+      const croppedImage = canvas.toDataURL();
+
+      createTiles(croppedImage);
+      shuffle(tiles);
+      render();
+
+      // Set the sample image to show the cropped version
+      sampleImage.src = croppedImage;
+    };
+
+    /* TẠO MẢNH */
+    function createTiles(bgImage) {
+      for (let i = 0; i < SIZE * SIZE; i++) {
+        const tile = document.createElement("div");
+        tile.classList.add("tile");
+
+        if (i === SIZE * SIZE - 1) {
+          tile.classList.add("empty");
+        } else {
+          const x = i % SIZE;
+          const y = Math.floor(i / SIZE);
+          tile.style.backgroundImage = `url(${bgImage})`;
+          tile.style.backgroundPosition =
+            `-${x * TILE_SIZE}px -${y * TILE_SIZE}px`;
+        }
+
+        tile.dataset.correct = i;
+        tiles.push(tile);
+        addDrag(tile);
+      }
+    }
+
+    /* DRAG */
+    let dragged = null;
+
+    function addDrag(tile) {
+      tile.addEventListener("pointerdown", e => {
+        if (tile.classList.contains("empty")) return;
+        dragged = tile;
+        tile.setPointerCapture(e.pointerId);
+      });
+
+      tile.addEventListener("pointerup", () => {
+        if (!dragged) return;
+        tryMove(dragged);
+        dragged = null;
+      });
+    }
+
+    /* MOVE */
+    function tryMove(tile) {
+      const empty = document.querySelector(".empty");
+      const t = tiles.indexOf(tile);
+      const e = tiles.indexOf(empty);
+
+      const tx = t % SIZE;
+      const ty = Math.floor(t / SIZE);
+      const ex = e % SIZE;
+      const ey = Math.floor(e / SIZE);
+
+      const canMove =
+        (Math.abs(tx - ex) === 1 && ty === ey) ||
+        (Math.abs(ty - ey) === 1 && tx === ex);
+
+      if (!canMove) return;
+
+      [tiles[t], tiles[e]] = [tiles[e], tiles[t]];
+      render();
+
+      // Kiểm tra nếu game thắng
+      checkWin();
+    }
+
+    /* Kiểm tra thắng cuộc */
+    function checkWin() {
+      const correctOrder = tiles.every((tile, index) => {
+        return tile.dataset.correct == index;
+      });
+
+      if (correctOrder) {
+        winMessage.style.display = "block"; // Hiển thị thông báo thắng cuộc
+      }
+    }
+
+    /* RENDER */
+    function render() {
+      puzzle.innerHTML = "";
+      tiles.forEach(t => puzzle.appendChild(t));
+    }
+
+    /* SHUFFLE */
+    function shuffle(arr) {
+      for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+    }
+  </script>
+
+</body>
+</html>
