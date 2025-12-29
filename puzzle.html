@@ -2,7 +2,7 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <title>Sliding Puzzle 6x6 Auto Crop</title>
+  <title>Sliding Puzzle 4x4 Auto Crop</title>
   <style>
     body {
       background: #eee;
@@ -15,10 +15,10 @@
     }
 
     #puzzle {
-      width: 360px;
-      height: 360px;
+      width: 240px;
+      height: 240px;
       display: grid;
-      grid-template-columns: repeat(6, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 1px;
       background: #333;
       touch-action: none;
@@ -29,7 +29,7 @@
     .tile {
       width: 60px;
       height: 60px;
-      background-size: 360px 360px;
+      background-size: 240px 240px;
       cursor: grab;
     }
 
@@ -41,8 +41,8 @@
     }
 
     #sample-image {
-      width: 180px;
-      height: 180px;
+      width: 240px;
+      height: 240px;
       margin-top: 20px;
       border: 2px solid #333;
       object-fit: cover;
@@ -71,8 +71,8 @@
   <div id="win-message">🎉 Bạn đã thắng! Chúc mừng!</div>
 
   <script>
-    const SIZE = 6;
-    const PUZZLE_SIZE = 360;
+    const SIZE = 4;
+    const PUZZLE_SIZE = 240;
     const TILE_SIZE = PUZZLE_SIZE / SIZE;
 
     // Danh sách các hình ảnh để chọn ngẫu nhiên
