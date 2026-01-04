@@ -7,14 +7,14 @@ document.addEventListener('DOMContentLoaded', () => {
         // Open modal
         gameControl.addEventListener('click', () => {
             gameModal.classList.add('show');
-            document.body.style.overflow = 'hidden'; // Prevent scrolling
+            document.body.classList.add('body-no-scroll');
         });
 
         // Close modal via close button
         if (modalClose) {
             modalClose.addEventListener('click', () => {
                 gameModal.classList.remove('show');
-                document.body.style.overflow = ''; // Restore scrolling
+                document.body.classList.remove('body-no-scroll');
             });
         }
 
@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
         gameModal.addEventListener('click', (e) => {
             if (e.target === gameModal) {
                 gameModal.classList.remove('show');
-                document.body.style.overflow = '';
+                document.body.classList.remove('body-no-scroll');
             }
         });
 
@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && gameModal.classList.contains('show')) {
                 gameModal.classList.remove('show');
-                document.body.style.overflow = '';
+                document.body.classList.remove('body-no-scroll');
             }
         });
     }
