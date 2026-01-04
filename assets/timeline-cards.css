@@ -1,0 +1,132 @@
+/* Timeline Card Stack Styles */
+.card-stack {
+  position: relative;
+  width: 100%;
+  max-width: 350px;
+  height: 250px;
+  margin: 0 auto;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.card-stack-card {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;
+  box-shadow: 0 4px 20px rgba(244, 114, 182, 0.2);
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  overflow: hidden;
+  background: white;
+}
+
+.card-stack-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 1rem;
+}
+
+/* Stack effect - 3 cards layered */
+.card-stack-card:nth-child(1) {
+  z-index: 3;
+  transform: translateY(0) translateX(0) rotate(0deg);
+}
+
+.card-stack-card:nth-child(2) {
+  z-index: 2;
+  transform: translateY(-8px) translateX(-6px) rotate(-3deg);
+  opacity: 0.9;
+}
+
+.card-stack-card:nth-child(3) {
+  z-index: 1;
+  transform: translateY(-16px) translateX(-12px) rotate(-6deg);
+  opacity: 0.8;
+}
+
+/* Hover effect - fan out cards */
+.card-stack:hover .card-stack-card:nth-child(1) {
+  transform: translateY(0) translateX(20px) rotate(5deg);
+}
+
+.card-stack:hover .card-stack-card:nth-child(2) {
+  transform: translateY(-8px) translateX(0) rotate(0deg);
+  opacity: 1;
+}
+
+.card-stack:hover .card-stack-card:nth-child(3) {
+  transform: translateY(-16px) translateX(-20px) rotate(-5deg);
+  opacity: 1;
+}
+
+/* Hover me indicator */
+.card-stack::before {
+  content: 'xem kỷ niệm';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  font-family: 'Playpen Sans', cursive;
+}
+
+.card-stack:hover::before {
+  opacity: 1;
+}
+
+/* Active/Click effect */
+.card-stack:active .card-stack-card {
+  transform: scale(0.98);
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 767px) {
+  .card-stack {
+    max-width: 100%;
+    height: 280px;
+  }
+
+  .card-stack::before {
+    font-size: 1rem;
+  }
+
+  /* Reduce offset on mobile for better visibility */
+  .card-stack-card:nth-child(2) {
+    transform: translateY(-6px) translateX(-4px) rotate(-3deg);
+  }
+
+  .card-stack-card:nth-child(3) {
+    transform: translateY(-12px) translateX(-8px) rotate(-6deg);
+  }
+
+  .card-stack:hover .card-stack-card:nth-child(1) {
+    transform: translateY(0) translateX(15px) rotate(4deg);
+  }
+
+  .card-stack:hover .card-stack-card:nth-child(3) {
+    transform: translateY(-12px) translateX(-15px) rotate(-4deg);
+  }
+}
+
+/* Add pink overlay on hover for better visibility */
+.card-stack-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(244, 114, 182, 0.1), rgba(248, 113, 113, 0.1));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.card-stack:hover .card-stack-card::after {
+  opacity: 1;
+}
