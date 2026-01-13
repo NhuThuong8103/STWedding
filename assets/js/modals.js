@@ -142,11 +142,89 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Event Listeners
 
+  // Create fire/heart particles effect
+  function createParticles(button) {
+    const buttonRect = button.getBoundingClientRect();
+    const particles = ['❤️', '🔥', '💝', '✨', '💕', '🎉'];
+
+    for (let i = 0; i < 15; i++) {
+      const particle = document.createElement('div');
+      particle.className = 'blessing-particle';
+      particle.textContent = particles[Math.floor(Math.random() * particles.length)];
+
+      // Position at button center
+      particle.style.left = buttonRect.left + buttonRect.width / 2 + 'px';
+      particle.style.top = buttonRect.top + buttonRect.height / 2 + 'px';
+
+      // Random horizontal spread
+      const spreadX = (Math.random() - 0.5) * 200;
+      particle.style.setProperty('--spread-x', spreadX + 'px');
+
+      // Random animation duration
+      const duration = 1 + Math.random() * 0.5;
+      particle.style.animationDuration = duration + 's';
+
+      // Random delay
+      particle.style.animationDelay = (Math.random() * 0.2) + 's';
+
+      document.body.appendChild(particle);
+
+      // Remove particle after animation
+      setTimeout(() => {
+        particle.remove();
+      }, (duration + 0.2) * 1000);
+    }
+  }
+
+  // Show blessing toast notification
+  function showBlessingMessage() {
+    // Create or get toast element
+    let toast = document.getElementById('blessing-toast');
+    if (!toast) {
+      toast = document.createElement('div');
+      toast.id = 'blessing-toast';
+      toast.className = 'blessing-toast';
+      document.body.appendChild(toast);
+    }
+
+    toast.innerHTML = `
+      <div class="blessing-toast-content">
+        <span class="blessing-icon">🎉</span>
+        <p>Một lời chúc phúc đã được gởi đến Sang và Thương</p>
+      </div>
+    `;
+
+    // Show toast
+    setTimeout(() => {
+      toast.classList.add('show');
+    }, 100);
+
+    // Hide toast after 4 seconds
+    setTimeout(() => {
+      toast.classList.remove('show');
+    }, 4000);
+  }
+
   // Welcome modal button - play music and close
   if (welcomeBtn) {
-    welcomeBtn.addEventListener('click', () => {
-      playMusic();
-      hideModal(welcomeModal);
+    welcomeBtn.addEventListener('click', (e) => {
+      // Add click effect to button
+      welcomeBtn.classList.add('blessing-clicked');
+
+      // Create particle effect
+      createParticles(welcomeBtn);
+
+      // Show blessing message
+      setTimeout(() => {
+        showBlessingMessage();
+      }, 500);
+
+      // Play music and close modal
+      setTimeout(() => {
+        playMusic();
+        hideModal(welcomeModal);
+        welcomeBtn.classList.remove('blessing-clicked');
+      }, 800);
     });
   }
 

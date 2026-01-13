@@ -208,3 +208,114 @@
 .welcome-modal p:last-of-type:not(.modal-footer) {
   animation: pulse-heart 2s ease-in-out infinite;
 }
+
+/* Blessing Particle Effects */
+.blessing-particle {
+  position: fixed;
+  font-size: 24px;
+  pointer-events: none;
+  z-index: 9999;
+  animation: float-up 1.5s ease-out forwards;
+  opacity: 1;
+}
+
+@keyframes float-up {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--spread-x, 0), -200px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Button Click Effect */
+.modal-btn.blessing-clicked {
+  animation: blessing-click 0.3s ease-out;
+}
+
+@keyframes blessing-click {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Blessing Toast Notification */
+.blessing-toast {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+  z-index: 10000;
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  pointer-events: none;
+}
+
+.blessing-toast.show {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.blessing-toast-content {
+  background: linear-gradient(135deg, #fff5f7 0%, #ffffff 100%);
+  border: 2px solid rgba(251, 113, 133, 0.3);
+  border-radius: 20px;
+  padding: 2rem 2.5rem;
+  box-shadow: 0 20px 60px rgba(251, 113, 133, 0.4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  min-width: 320px;
+  max-width: 90vw;
+}
+
+.blessing-icon {
+  font-size: 3rem;
+  animation: blessing-bounce 0.6s ease-in-out infinite;
+}
+
+@keyframes blessing-bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.blessing-toast-content p {
+  color: #fb7185;
+  font-size: 1.125rem;
+  font-weight: 600;
+  text-align: center;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Mobile Responsive for Blessing Toast */
+@media (max-width: 640px) {
+  .blessing-toast-content {
+    padding: 1.5rem 2rem;
+    min-width: 280px;
+  }
+
+  .blessing-icon {
+    font-size: 2.5rem;
+  }
+
+  .blessing-toast-content p {
+    font-size: 1rem;
+  }
+}
