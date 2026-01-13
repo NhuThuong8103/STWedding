@@ -30,6 +30,7 @@
     <link rel="stylesheet" href="./assets/css/game.css" />
     <link rel="stylesheet" href="./assets/css/couple.css" />
     <link rel="stylesheet" href="./assets/css/timeline-cards.css" />
+    <link rel="stylesheet" href="./assets/css/modals.css" />
   </head>
   <body class="bg-white text-slate-800 antialiased">
     <!-- Preloader -->
@@ -934,6 +935,7 @@
     <script src="./assets/js/effects.js" defer></script>
     <script src="./assets/js/lightbox.js" defer></script>
     <script src="./assets/js/game.js" defer></script>
+    <script src="./assets/js/modals.js" defer></script>
 
 
     <!-- Music Control -->
@@ -957,6 +959,30 @@
           <small class="text-pink-500 text-sm">Một phần thưởng đang chờ bạn nhé! <i class="fa-solid fa-gift"></i></small>
         </div>
         <iframe src="./puzzle.html" class="game-iframe"></iframe>
+      </div>
+    </div>
+
+    <!-- Welcome Modal -->
+    <div id="welcome-modal" class="modal-overlay">
+      <div class="modal-content welcome-modal">
+        <h2>Cảm ơn bạn đã đến đây</h2>
+        <p>Giữa rất nhiều nơi, bạn đã chọn ghé thăm câu chuyện tình yêu của chúng mình.</p>
+        <p>Hy vọng những khoảnh khắc trong website này sẽ mang đến cho bạn niềm vui và sự ấm áp 💞</p>
+        <button id="welcome-btn" class="modal-btn">Chúc mừng nhá 🎉</button>
+        <p class="modal-footer">Tạo bởi Sang & Thuong với rất nhiều yêu thương ♥</p>
+      </div>
+    </div>
+
+    <!-- Update Notification Modal -->
+    <div id="update-modal" class="modal-overlay">
+      <div class="modal-content update-modal">
+        <button class="modal-close">&times;</button>
+        <h2>Có gì mới đó!</h2>
+        <div id="update-content"></div>
+        <div class="modal-buttons">
+          <button id="update-details-btn" class="modal-btn modal-btn-secondary">Xem chi tiết</button>
+          <button id="update-close-btn" class="modal-btn">Đóng</button>
+        </div>
       </div>
     </div>
   </body>

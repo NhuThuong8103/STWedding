@@ -1,0 +1,210 @@
+/* Modal System Styles */
+
+/* Modal Overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9998;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  padding: 1rem;
+}
+
+.modal-overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Modal Content */
+.modal-content {
+  background: linear-gradient(135deg, #fff5f7 0%, #ffffff 100%);
+  border-radius: 24px;
+  box-shadow: 0 20px 60px rgba(251, 113, 133, 0.3);
+  max-width: 500px;
+  width: 100%;
+  padding: 2.5rem;
+  position: relative;
+  transform: translateY(20px) scale(0.95);
+  transition: transform 0.3s ease;
+  border: 2px solid rgba(251, 113, 133, 0.2);
+}
+
+.modal-overlay.show .modal-content {
+  transform: translateY(0) scale(1);
+}
+
+/* Welcome Modal Specific */
+.welcome-modal h2 {
+  font-family: 'Alex Brush', cursive;
+  font-size: 2.5rem;
+  color: #fb7185;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.welcome-modal p {
+  color: #475569;
+  font-size: 1.125rem;
+  line-height: 1.8;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.welcome-modal .modal-footer {
+  font-size: 0.875rem;
+  color: #94a3b8;
+  margin-top: 2rem;
+  margin-bottom: 0;
+  font-style: italic;
+}
+
+/* Update Modal Specific */
+.update-modal h2 {
+  font-family: 'Alex Brush', cursive;
+  font-size: 2.25rem;
+  color: #fb7185;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.update-modal #update-content {
+  margin-bottom: 2rem;
+}
+
+.update-modal #update-content h3 {
+  font-size: 1.5rem;
+  color: #334155;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+.update-modal #update-content p {
+  color: #475569;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Modal Close Button */
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #cbd5e1;
+  cursor: pointer;
+  transition: color 0.2s ease, transform 0.2s ease;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.modal-close:hover {
+  color: #fb7185;
+  transform: rotate(90deg);
+  background: rgba(251, 113, 133, 0.1);
+}
+
+/* Modal Buttons */
+.modal-btn {
+  background: linear-gradient(135deg, #fb7185 0%, #f472b6 100%);
+  color: white;
+  border: none;
+  padding: 0.875rem 2rem;
+  border-radius: 12px;
+  font-size: 1.125rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(251, 113, 133, 0.3);
+  display: block;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.modal-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(251, 113, 133, 0.4);
+}
+
+.modal-btn:active {
+  transform: translateY(0);
+}
+
+.modal-btn-secondary {
+  background: linear-gradient(135deg, #e0e7ff 0%, #ddd6fe 100%);
+  color: #6366f1;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2);
+}
+
+.modal-btn-secondary:hover {
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.3);
+}
+
+/* Modal Button Group */
+.modal-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+/* Mobile Responsive */
+@media (max-width: 640px) {
+  .modal-content {
+    padding: 2rem 1.5rem;
+    max-width: calc(100vw - 2rem);
+    border-radius: 20px;
+  }
+
+  .welcome-modal h2 {
+    font-size: 2rem;
+  }
+
+  .welcome-modal p {
+    font-size: 1rem;
+  }
+
+  .update-modal h2 {
+    font-size: 1.875rem;
+  }
+
+  .modal-btn {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+  }
+
+  .modal-close {
+    top: 0.75rem;
+    right: 0.75rem;
+    font-size: 1.75rem;
+  }
+}
+
+/* Animation for heart emoji */
+@keyframes pulse-heart {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.welcome-modal p:last-of-type:not(.modal-footer) {
+  animation: pulse-heart 2s ease-in-out infinite;
+}
