@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const countdownMessage = document.querySelector('[data-countdown-message]');
   const countdownTargetLabel = document.querySelector('[data-countdown-target]');
   let countdownIntervalId = null;
-  const COUNTDOWN_TARGET_ISO = '2026-04-30T10:00:00+07:00';
+  const COUNTDOWN_TARGET_ISO = '2026-04-18T10:00:00+07:00';
 
   const setCountdownDisplay = (days = '--', hours = '--', minutes = '--', seconds = '--') => {
     if (countdownValueElements.days) countdownValueElements.days.textContent = days;

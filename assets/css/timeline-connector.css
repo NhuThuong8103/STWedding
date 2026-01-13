@@ -1,0 +1,36 @@
+/* Timeline Connector Lines */
+.timeline-connector {
+  position: absolute;
+  bottom: -3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 3rem;
+  background: linear-gradient(180deg, rgba(203, 213, 225, 0.5), rgba(203, 213, 225, 0));
+  opacity: 0;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.timeline-connector.active {
+  background: linear-gradient(180deg, rgba(251, 113, 133, 0.8), rgba(251, 113, 133, 0.3));
+  opacity: 1;
+}
+
+/* Active timeline card styling */
+.active-timeline {
+  border-color: #fb7185 !important;
+}
+
+/* Show connector on hover for non-active cards */
+#event-card-2:hover .timeline-connector {
+  opacity: 0.5;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .timeline-connector {
+    bottom: -2rem;
+    height: 2rem;
+  }
+}

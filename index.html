@@ -31,6 +31,7 @@
     <link rel="stylesheet" href="./assets/css/couple.css" />
     <link rel="stylesheet" href="./assets/css/timeline-cards.css" />
     <link rel="stylesheet" href="./assets/css/modals.css" />
+    <link rel="stylesheet" href="./assets/css/timeline-connector.css" />
   </head>
   <body class="bg-white text-slate-800 antialiased">
     <!-- Preloader -->
@@ -144,7 +145,7 @@
       <div class="mx-auto flex w-full max-w-6xl flex-col items-center gap-6 px-6 py-5">
         <div class="text-center">
           <h1 id="typing-text" class="md:text-7xl text-4xl font-wedding text-white drop-shadow-lg">We're getting married, see you soon!</h1>
-          <p class="text-lg md:text-xl text-white mt-2">Chúng mình sắp cưới! 30 tháng 4 năm 2026</p>
+          <p class="text-lg md:text-xl text-white mt-2">Chúng mình sắp cưới! 18 tháng 4 năm 2026</p>
         </div>
       <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 cursor-pointer z-10"
         id="scroll-down">
@@ -465,22 +466,138 @@
               <p class="mt-1 text-sm text-slate-500 transition-colors group-hover:text-[#ff0066]">10h, ngày 01 tháng 11, năm 2025</p>
               <p class="mt-1 text-sm text-slate-500 transition-colors group-hover:text-[#ff0066]">Tại: Tây Ninh</p>
             </div>
-            <div class="relative group text-center border border-default border-[#e78377] rounded-2xl p-5 transition-all duration-300 bg-white shadow-[0px_1px_37px_1px_#e39696] hover:border-[#fb2424]">
+            <div id="event-card-1" class="relative group text-center border border-default border-[#e78377] rounded-2xl p-5 transition-all duration-300 bg-white shadow-[0px_1px_37px_1px_#e39696] hover:border-[#fb2424] active-timeline">
               <!-- <canvas id="canvas" class="h-32 w-full"></canvas> -->
               <span class="absolute -top-3 -right-3 flex h-8 w-8 items-center justify-center rounded-full">
                 <image src="./assets/image/Hourglass.gif" />
               </span>
+              <!-- Connecting Line to Timeline -->
+              <div class="timeline-connector active hidden md:block"></div>
               <h1 class="mt-2 uppercase font-bold transition-colors text-[#ff0066]">Lễ Vu Quy</h1>
-              <p class="mt-1 text-sm transition-colors text-[#ff0066]">10h, ngày 30 tháng 4, năm 2026</p>
-              <p class="mt-1 text-sm transition-colors text-[#ff0066]">Tại: Tây Ninh</p>
+              <p class="mt-1 text-sm transition-colors text-[#ff0066]">10h, ngày 18 tháng 4, năm 2026</p>
+              <p class="mt-1 text-sm transition-colors text-[#ff0066]">Tại: 2/11 Nguyễn Lương Bằng, Hoà Thành, Tây Ninh</p>
             </div>
-            <div class="relative group text-center border border-default border-[#e78377] rounded-2xl p-5 transition-all duration-300 shadow-[0px_1px_37px_1px_#e39696] hover:bg-white hover:border-[#fb2424]">
+            <div id="event-card-2" class="relative group text-center border border-default border-[#e78377] rounded-2xl p-5 transition-all duration-300 shadow-[0px_1px_37px_1px_#e39696] hover:bg-white hover:border-[#fb2424]">
               <span class="absolute -top-3 -right-3 flex h-8 w-8 items-center justify-center rounded-full">
                 <image src="./assets/image/Hourglass.gif" />
               </span>
+              <!-- Connecting Line to Timeline -->
+              <div class="timeline-connector hidden md:block"></div>
               <h1 class="mt-2 uppercase font-bold text-slate-500 transition-colors group-hover:text-[#ff0066]">Lễ Thành Hôn</h1>
-              <p class="mt-1 text-sm text-slate-500 transition-colors group-hover:text-[#ff0066]">14h, ngày 30 tháng 4, năm 2026</p>
+              <p class="mt-1 text-sm text-slate-500 transition-colors group-hover:text-[#ff0066]">14h, ngày 22 tháng 4, năm 2026</p>
               <p class="mt-1 text-sm text-slate-500 transition-colors group-hover:text-[#ff0066]">Tại: Quảng Nam</p>
+            </div>
+          </div>
+
+          <!-- Timeline for Lễ Vu Quy (Section 1) - Initially visible -->
+          <div class="mt-12 bg-white rounded-3xl shadow-xl p-8 border-2 border-pink-100 relative overflow-hidden">
+            <!-- Botanical Leaves Background -->
+            <div class="absolute right-0 md:right-auto md:left-0 top-0 bottom-0 w-64 pointer-events-none z-10 opacity-40">
+              <img src="./assets/image/timeline-leaves.png" alt="Botanical Decoration" class="h-full w-auto object-cover object-left">
+            </div>
+
+            <!-- Content Layer -->
+            <div class="relative z-10">
+              <div class="text-center mb-8">
+                <h3 class="font-wedding text-3xl text-pink-400 mb-2">Wedding Timeline</h3>
+                <p class="text-sm text-slate-500 uppercase tracking-widest">Lễ Vu Quy • 18 . 04 . 2026 • Tây Ninh</p>
+              </div>
+
+            <!-- Timeline Container -->
+            <div class="relative max-w-md mx-auto">
+              <!-- Vertical Line -->
+              <div class="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-pink-200 via-pink-400 to-pink-200"></div>
+
+              <!-- Timeline Events -->
+              <div class="space-y-8">
+                <!-- Event 1: Preparation -->
+                <div class="relative flex items-start gap-6">
+                  <!-- Dot -->
+                  <div class="relative z-10 flex-shrink-0">
+                    <div class="w-16 h-16 rounded-full bg-gradient-to-br from-pink-400 to-pink-500 flex items-center justify-center shadow-lg">
+                      <i class="fa-solid fa-spa text-white text-xl"></i>
+                    </div>
+                  </div>
+                  <!-- Content -->
+                  <div class="flex-1 pt-3">
+                    <p class="text-xs font-bold text-pink-500 uppercase tracking-wider mb-1">8:00 AM</p>
+                    <h4 class="font-semibold text-slate-800 mb-1">Chuẩn bị</h4>
+                    <p class="text-sm text-slate-600">Trang điểm và chuẩn bị cho cô dâu</p>
+                  </div>
+                </div>
+
+                <!-- Event 2: Ceremony Start -->
+                <div class="relative flex items-start gap-6">
+                  <div class="relative z-10 flex-shrink-0">
+                    <div class="w-16 h-16 rounded-full bg-gradient-to-br from-pink-400 to-pink-500 flex items-center justify-center shadow-lg">
+                      <i class="fa-solid fa-ring text-white text-xl"></i>
+                    </div>
+                  </div>
+                  <div class="flex-1">
+                    <p class="text-xs font-bold text-pink-500 uppercase tracking-wider mb-1">10:00 AM</p>
+                    <h4 class="font-semibold text-slate-800 mb-1">Lễ Vu Quy</h4>
+                    <p class="text-sm text-slate-600">Nghi lễ vu quy tại nhà gái</p>
+                  </div>
+                </div>
+
+                <!-- Event 3: Tea Ceremony -->
+                <div class="relative flex items-start gap-6">
+                  <div class="relative z-10 flex-shrink-0">
+                    <div class="w-16 h-16 rounded-full bg-gradient-to-br from-pink-400 to-pink-500 flex items-center justify-center shadow-lg">
+                      <i class="fa-solid fa-mug-hot text-white text-xl"></i>
+                    </div>
+                  </div>
+                  <div class="flex-1">
+                    <p class="text-xs font-bold text-pink-500 uppercase tracking-wider mb-1">11:00 AM</p>
+                    <h4 class="font-semibold text-slate-800 mb-1">Lễ trà</h4>
+                    <p class="text-sm text-slate-600">Dâng trà gia đình hai bên</p>
+                  </div>
+                </div>
+
+                <!-- Event 4: Lunch -->
+                <div class="relative flex items-start gap-6">
+                  <div class="relative z-10 flex-shrink-0">
+                    <div class="w-16 h-16 rounded-full bg-gradient-to-br from-pink-400 to-pink-500 flex items-center justify-center shadow-lg">
+                      <i class="fa-solid fa-utensils text-white text-xl"></i>
+                    </div>
+                  </div>
+                  <div class="flex-1">
+                    <p class="text-xs font-bold text-pink-500 uppercase tracking-wider mb-1">12:00 PM</p>
+                    <h4 class="font-semibold text-slate-800 mb-1">Tiệc trưa</h4>
+                    <p class="text-sm text-slate-600">Tiệc mừng cùng gia đình và khách mời</p>
+                  </div>
+                </div>
+
+                <!-- Event 5: Photos -->
+                <div class="relative flex items-start gap-6">
+                  <div class="relative z-10 flex-shrink-0">
+                    <div class="w-16 h-16 rounded-full bg-gradient-to-br from-pink-400 to-pink-500 flex items-center justify-center shadow-lg">
+                      <i class="fa-solid fa-camera text-white text-xl"></i>
+                    </div>
+                  </div>
+                  <div class="flex-1">
+                    <p class="text-xs font-bold text-pink-500 uppercase tracking-wider mb-1">1:30 PM</p>
+                    <h4 class="font-semibold text-slate-800 mb-1">Chụp ảnh lưu niệm</h4>
+                    <p class="text-sm text-slate-600">Chụp ảnh cùng người thân và bạn bè</p>
+                  </div>
+                </div>
+
+                <!-- Event 6: Farewell -->
+                <div class="relative flex items-start gap-6">
+                  <div class="relative z-10 flex-shrink-0">
+                    <div class="w-16 h-16 rounded-full bg-gradient-to-br from-pink-400 to-pink-500 flex items-center justify-center shadow-lg">
+                      <i class="fa-solid fa-heart text-white text-xl"></i>
+                    </div>
+                  </div>
+                  <div class="flex-1">
+                    <p class="text-xs font-bold text-pink-500 uppercase tracking-wider mb-1">3:00 PM</p>
+                    <h4 class="font-semibold text-slate-800 mb-1">Ra về</h4>
+                    <p class="text-sm text-slate-600">Gia đình nhà trai đón dâu về</p>
+                  </div>
+                </div>
+                </div>
+              </div>
+            </div>
             </div>
           </div>
         </div>
@@ -496,7 +613,7 @@
 
             <div class="rounded-xl bg-white/80 px-6 py-4 shadow-md backdrop-blur">
               <p class="text-sm font-bold uppercase tracking-[0.35em] text-brand">Lễ Vu Quy</p>
-              <p class="mt-1 text-2xl font-semibold text-heading" data-countdown-target>ngày 30 tháng 4, năm 2026 · 10h</p>
+              <p class="mt-1 text-2xl font-semibold text-heading" data-countdown-target>ngày 18 tháng 4, năm 2026 · 10h</p>
             </div>
 
             <div class="grid w-full max-w-xl grid-cols-2 gap-4 sm:grid-cols-4" data-countdown-display>
@@ -574,7 +691,11 @@
                   <div class="p-2">15</div>
                   <div class="p-2">16</div>
                   <div class="p-2">17</div>
-                  <div class="p-2">18</div>
+                  <!-- 18th is the wedding day -->
+                  <div class="relative flex items-center justify-center">
+                    <i class="fa fa-heart text-pink-400 text-4xl absolute animate-pulse"></i>
+                    <span class="relative z-10 text-white font-bold">18</span>
+                  </div>
                   <div class="p-2">19</div>
                   <div class="p-2">20</div>
                   <div class="p-2">21</div>
@@ -586,12 +707,7 @@
                   <div class="p-2">27</div>
                   <div class="p-2">28</div>
                   <div class="p-2">29</div>
-
-                  <!-- 30th is the wedding day -->
-                  <div class="relative flex items-center justify-center">
-                    <i class="fa fa-heart text-pink-400 text-4xl absolute animate-pulse"></i>
-                    <span class="relative z-10 text-white font-bold">30</span>
-                  </div>
+                  <div class="p-2">30</div>
                 </div>
               </div>
             </div>
