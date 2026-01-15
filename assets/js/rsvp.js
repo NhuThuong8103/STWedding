@@ -34,6 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
         showToast(toastContent);
       }
 
+      rsvpForm.submit();
       rsvpForm.reset();
     });
   }
