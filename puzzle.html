@@ -56,6 +56,7 @@
       font-size: 20px;
       display: none; /* Ẩn thông báo khi chưa thắng */
       border-radius: 5px;
+      text-align: center;
     }
   </style>
 </head>
@@ -68,12 +69,24 @@
   <img id="sample-image" alt="Sample Image" />
 
   <!-- Thông báo thắng cuộc -->
-  <div id="win-message">🎉 Bạn đã thắng! Chúc mừng!</div>
+  <div id="win-message">Bạn đã thắng! 🎉 </br>Chúc mừng bạn nhận được món quà nhỏ đó là</br><b>#{value}</b></div>
 
   <script>
     const SIZE = 4;
     const PUZZLE_SIZE = 240;
     const TILE_SIZE = PUZZLE_SIZE / SIZE;
+
+    // Danh sách các giá trị quà tặng ngẫu nhiên với xác suất
+    const PRIZE_VALUES = [
+      { value: '🥰 99đ 🥰', weight: 13 },
+      { value: '😋 333đ 😋', weight: 13 },
+      { value: '🥳 3k (Love You 3k) 🥳', weight: 13 },
+      { value: '1 cái ôm ấm áp ^^', weight: 13 },
+      { value: '1 cái ôm siu tooo :3', weight: 13 },
+      { value: '💎 DIAMOND RING 50 TRIỆU yêu thương 💎', weight: 14 },
+      { value: '😍 999đ 😍', weight: 19 },
+      { value: '🤩 9.999đ 🤩', weight: 2 } // Item hiếm
+    ];
 
     // Danh sách các hình ảnh để chọn ngẫu nhiên
     const IMAGE_LIST = [
@@ -84,6 +97,20 @@
 
     // Lựa chọn ngẫu nhiên một hình ảnh
     const IMAGE_SRC = IMAGE_LIST[Math.floor(Math.random() * IMAGE_LIST.length)];
+
+    // Hàm random theo xác suất (weight)
+    function getRandomPrize() {
+      const totalWeight = PRIZE_VALUES.reduce((sum, item) => sum + item.weight, 0);
+      let random = Math.random() * totalWeight;
+
+      for (const prize of PRIZE_VALUES) {
+        random -= prize.weight;
+        if (random <= 0) {
+          return prize.value;
+        }
+      }
+      return PRIZE_VALUES[0].value; // Fallback
+    }
 
     const puzzle = document.getElementById("puzzle");
     const sampleImage = document.getElementById("sample-image");
@@ -190,6 +217,10 @@
       });
 
       if (correctOrder) {
+        // Random giá trị quà tặng theo xác suất
+        const randomPrize = getRandomPrize();
+        // Thay thế #{value} bằng giá trị random
+        winMessage.innerHTML = winMessage.innerHTML.replace('#{value}', randomPrize);
         winMessage.style.display = "block"; // Hiển thị thông báo thắng cuộc
       }
     }
